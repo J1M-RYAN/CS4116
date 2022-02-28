@@ -3,11 +3,11 @@ require "init.php";
 
 class Database
 {
-    protected $Pdo;
+    protected $pdo;
     protected static $instance;
     protected function __construct()
     {
-        $this->Pdo = new PDO("mysql:host=" . DB_HOST . "; dbname=" . DB_NAME, DB_USER, DB_PASS);
+        $this->pdo = new PDO("mysql:host=" . DB_HOST . "; dbname=" . DB_NAME, DB_USER, DB_PASS);
     }
 
     public static function instance()
@@ -19,6 +19,6 @@ class Database
     }
     public function __call($name, $arguments)
     {
-        call_user_func_array(array($this->Pdo, $name), $arguments);
+        call_user_func_array(array($this->pdo, $name), $arguments);
     }
 }
