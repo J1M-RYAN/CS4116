@@ -3,3 +3,5 @@
 
 # no mac specific preferences
 .DS_Store
+
+.idea/
