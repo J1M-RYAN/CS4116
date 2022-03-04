@@ -110,14 +110,14 @@ CREATE TABLE `profile` (
 --
 CREATE TABLE `user` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
-  `LastLoginTime` DATETIME DEFAULT current_timestamp() NOT NULL COMMENT 'Records when the user last logged in',
-  `SignupDate` DATETIME DEFAULT current_timestamp() NOT NULL COMMENT 'Records when the user created their account',
+  `LastLoginTime` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the user last logged in',
+  `SignupDate` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the user created their account',
   `Email` varchar(26) NOT NULL,
   `Firstname` varchar(26) NOT NULL,
   `Surname` varchar(26) NOT NULL,
   `Password` varchar(256) NOT NULL COMMENT 'See video for information on how to encrypt password BEFORE storing it. Never store the user''s actual password.',
   `UserType` enum('Admin', 'User') COMMENT 'Enum type representing whether the user is an admin or not.',
-  primary key (`UserID`)
+  PRIMARY KEY (`UserID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Store personal information about the user. ';
 
 CREATE TABLE `report` (
@@ -125,14 +125,14 @@ CREATE TABLE `report` (
   `ReporterID` int(11) NOT NULL COMMENT 'INT representing the person making the reports ID',
   `ReportedID` int(11) NOT NULL COMMENT 'INT representing the person the report is about',
   `Report` varchar(200) NOT NULL COMMENT 'Content of the report as a string',
-  `Date` DATETIME DEFAULT current_timestamp() NOT NULL COMMENT 'Records when the report was made',
+  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the report was made',
   `ReportType` enum(
     'Inappropriate content',
     'Fake profile',
     'Hate speech',
     'Other'
-  ) NOT NUll Comment 'Enum representing the type of report',
-  primary key (`ReportID`)
+  ) NOT NULL COMMENT 'Enum representing the type of report',
+  PRIMARY KEY (`ReportID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores reports made by the users.';
 
 CREATE TABLE `location` (
@@ -173,15 +173,15 @@ CREATE TABLE `location` (
     'Wicklow'
   ) NOT NULL COMMENT 'String representing the county the town is in',
   `Province` enum('Munster', 'Leinster', 'Ulster', 'Connaught') NOT NULL COMMENT 'Enum representing the province of the location',
-  primary key (`LocationID`)
+  PRIMARY KEY (`LocationID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores all available locations.';
 
 CREATE TABLE `block` (
   `BlockID` int(11) NOT NULL AUTO_INCREMENT,
   `BlockerID` int(11) NOT NULL COMMENT 'INT representing the person who is blocking another user',
   `BlockedID` int(11) NOT NULL COMMENT 'INT representing the person who is blocked',
-  `Date` DATETIME DEFAULT current_timestamp() NOT NULL COMMENT 'Records when the report was made',
-  primary key (`BlockId`)
+  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the report was made',
+  PRIMARY KEY (`BlockId`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores blocks made by the users.';
 
 ALTER TABLE
@@ -221,13 +221,13 @@ ALTER TABLE
 ADD
   PRIMARY KEY (`UserID`);
 
---
---
--- Constraints for dumped tables
---
---
--- Constraints for table `Connections`
---
+ALTER TABLE
+  `report`
+ADD
+  CONSTRAINT `Report_ibfk_1` FOREIGN KEY (`ReporterID`) REFERENCES `user` (`UserID`),
+ADD
+  CONSTRAINT `Report_ibfk_2` FOREIGN KEY (`ReportedID`) REFERENCES `user` (`UserID`);
+
 ALTER TABLE
   `Connections`
 ADD
@@ -251,13 +251,13 @@ ADD
 ALTER TABLE
   `profile`
 ADD
-  CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`);
+  CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`),
+ADD
+  CONSTRAINT `profile_ibfk_2` FOREIGN KEY (`LocationID`) REFERENCES `location` (`LocationID`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
-;
-
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
-;
-
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
-;
+ALTER TABLE
+  `block`
+ADD
+  CONSTRAINT `block_ibfk_1` FOREIGN KEY (`BlockerID`) REFERENCES `user` (`UserID`),
+ADD
+  CONSTRAINT `block_ibfk_2` FOREIGN KEY (`BlockedID`) REFERENCES `user` (`UserID`);
