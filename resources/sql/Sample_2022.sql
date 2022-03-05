@@ -42,10 +42,10 @@ CREATE TABLE `AvailableInterests` (
 --
 CREATE TABLE `Connections` (
   `ConnectionID` int(11) NOT NULL,
-  `userID1` int(11) NOT NULL COMMENT 'Which user initiated the connection?',
-  `userID2` int(11) NOT NULL COMMENT 'Which user received the connection',
+  `UserID1` int(11) NOT NULL COMMENT 'Which User initiated the connection?',
+  `UserID2` int(11) NOT NULL COMMENT 'Which User received the connection',
   `ConnectionDate` date NOT NULL COMMENT 'When was the connection made?',
-  `status` enum('Pending', 'Connected', 'Declined') NOT NULL COMMENT 'What is the status of the connection?'
+  `Status` enum('Pending', 'Connected', 'Declined') NOT NULL COMMENT 'What is the Status of the connection?'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
 -- --------------------------------------------------------
@@ -53,19 +53,19 @@ CREATE TABLE `Connections` (
 -- Table structure for table `Interests`
 --
 CREATE TABLE `Interests` (
-  `UserID` int(11) NOT NULL COMMENT 'Which user is this?',
+  `UserID` int(11) NOT NULL COMMENT 'Which User is this?',
   `InterestID` int(3) NOT NULL COMMENT 'Which interest do they have?'
-) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Interests of ALL users';
+) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Interests of ALL Users';
 
 -- --------------------------------------------------------
 --
--- Table structure for table `profile`
+-- Table structure for table `Profile`
 --
-CREATE TABLE `profile` (
+CREATE TABLE `Profile` (
   `UserID` int(11) NOT NULL,
   `Age` int(2) NOT NULL,
-  `Height` int(3) NOT NULL COMMENT 'Height in cm of the user',
-  `Star Sign` enum(
+  `Height` int(3) NOT NULL COMMENT 'Height in cm of the User',
+  `StarSign` enum(
     'Aries',
     'Taurus',
     'Gemini',
@@ -97,45 +97,45 @@ CREATE TABLE `profile` (
     'Sihkism',
     'Hinduism'
   ) NOT NULL,
-  `Children` binary(1) NOT NULL COMMENT 'Boolean type representing whether the user has children or not',
+  `Children` binary(1) NOT NULL COMMENT 'Boolean type representing whether the User has children or not',
   `Description` blob NOT NULL COMMENT 'Blob type because this will contain a free text description of the person',
-  `Banned` binary(1) NOT NULL COMMENT 'Has the user been banned by an admin?',
-  `Photo` varchar(26) NOT NULL COMMENT 'We should allow users to upload photos to the site; this field contains the name of the photo they have uploaded',
-  `LocationID` int(11) NOT NULL COMMENT 'The location ID of the town the user is in'
+  `Banned` binary(1) NOT NULL COMMENT 'Has the User been banned by an admin?',
+  `Photo` varchar(26) NOT NULL COMMENT 'We should allow Users to upload photos to the site; this field contains the name of the photo they have uploaded',
+  `LocationID` int(11) NOT NULL COMMENT 'The Location ID of the town the User is in'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
 -- --------------------------------------------------------
 --
--- Table structure for table `user`
+-- Table structure for table `User`
 --
-CREATE TABLE `user` (
+CREATE TABLE `User` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
-  `LastLoginTime` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the user last logged in',
-  `SignupDate` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the user created their account',
+  `LastLoginTime` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the User last logged in',
+  `SignupDate` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the User created their account',
   `Email` varchar(26) NOT NULL,
   `Firstname` varchar(26) NOT NULL,
   `Surname` varchar(26) NOT NULL,
-  `Password` varchar(256) NOT NULL COMMENT 'See video for information on how to encrypt password BEFORE storing it. Never store the user''s actual password.',
-  `UserType` enum('Admin', 'User') COMMENT 'Enum type representing whether the user is an admin or not.',
+  `Password` varchar(256) NOT NULL COMMENT 'See video for information on how to encrypt password BEFORE storing it. Never store the User''s actual password.',
+  `UserType` enum('Admin', 'User') COMMENT 'Enum type representing whether the User is an admin or not.',
   PRIMARY KEY (`UserID`)
-) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Store personal information about the user. ';
+) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Store personal information about the User. ';
 
-CREATE TABLE `report` (
+CREATE TABLE `Report` (
   `ReportID` int(11) NOT NULL AUTO_INCREMENT,
-  `ReporterID` int(11) NOT NULL COMMENT 'INT representing the person making the reports ID',
-  `ReportedID` int(11) NOT NULL COMMENT 'INT representing the person the report is about',
-  `Report` varchar(200) NOT NULL COMMENT 'Content of the report as a string',
-  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the report was made',
+  `ReporterID` int(11) NOT NULL COMMENT 'INT representing the person making the Reports ID',
+  `ReportedID` int(11) NOT NULL COMMENT 'INT representing the person the Report is about',
+  `Report` varchar(200) NOT NULL COMMENT 'Content of the Report as a string',
+  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the Report was made',
   `ReportType` enum(
     'Inappropriate content',
-    'Fake profile',
+    'Fake Profile',
     'Hate speech',
     'Other'
-  ) NOT NULL COMMENT 'Enum representing the type of report',
+  ) NOT NULL COMMENT 'Enum representing the type of Report',
   PRIMARY KEY (`ReportID`)
-) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores reports made by the users.';
+) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores Reports made by the Users.';
 
-CREATE TABLE `location` (
+CREATE TABLE `Location` (
   `LocationID` int(11) NOT NULL AUTO_INCREMENT,
   `Town` varchar(20) NOT NULL COMMENT 'String for the town/city name',
   `County` enum(
@@ -172,17 +172,17 @@ CREATE TABLE `location` (
     'Wexford',
     'Wicklow'
   ) NOT NULL COMMENT 'String representing the county the town is in',
-  `Province` enum('Munster', 'Leinster', 'Ulster', 'Connaught') NOT NULL COMMENT 'Enum representing the province of the location',
+  `Province` enum('Munster', 'Leinster', 'Ulster', 'Connaught') NOT NULL COMMENT 'Enum representing the province of the Location',
   PRIMARY KEY (`LocationID`)
-) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores all available locations.';
+) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores all available Locations.';
 
-CREATE TABLE `block` (
+CREATE TABLE `Block` (
   `BlockID` int(11) NOT NULL AUTO_INCREMENT,
-  `BlockerID` int(11) NOT NULL COMMENT 'INT representing the person who is blocking another user',
-  `BlockedID` int(11) NOT NULL COMMENT 'INT representing the person who is blocked',
-  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the report was made',
+  `BlockerID` int(11) NOT NULL COMMENT 'INT representing the person who is Blocking another User',
+  `BlockedID` int(11) NOT NULL COMMENT 'INT representing the person who is Blocked',
+  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the Report was made',
   PRIMARY KEY (`BlockId`)
-) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores blocks made by the users.';
+) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores Blocks made by the Users.';
 
 ALTER TABLE
   `AvailableInterests`
@@ -197,9 +197,9 @@ ALTER TABLE
 ADD
   PRIMARY KEY (`ConnectionID`),
 ADD
-  KEY `userID1` (`userID1`),
+  KEY `UserID1` (`UserID1`),
 ADD
-  KEY `userID2` (`userID2`);
+  KEY `UserID2` (`UserID2`);
 
 --
 -- Indexes for table `Interests`
@@ -214,26 +214,26 @@ ADD
   KEY `InterestID` (`InterestID`);
 
 --
--- Indexes for table `profile`
+-- Indexes for table `Profile`
 --
 ALTER TABLE
-  `profile`
+  `Profile`
 ADD
   PRIMARY KEY (`UserID`);
 
 ALTER TABLE
-  `report`
+  `Report`
 ADD
-  CONSTRAINT `Report_ibfk_1` FOREIGN KEY (`ReporterID`) REFERENCES `user` (`UserID`),
+  CONSTRAINT `Report_ibfk_1` FOREIGN KEY (`ReporterID`) REFERENCES `User` (`UserID`),
 ADD
-  CONSTRAINT `Report_ibfk_2` FOREIGN KEY (`ReportedID`) REFERENCES `user` (`UserID`);
+  CONSTRAINT `Report_ibfk_2` FOREIGN KEY (`ReportedID`) REFERENCES `User` (`UserID`);
 
 ALTER TABLE
   `Connections`
 ADD
-  CONSTRAINT `Connections_ibfk_1` FOREIGN KEY (`userID1`) REFERENCES `user` (`UserID`),
+  CONSTRAINT `Connections_ibfk_1` FOREIGN KEY (`UserID1`) REFERENCES `User` (`UserID`),
 ADD
-  CONSTRAINT `Connections_ibfk_2` FOREIGN KEY (`userID2`) REFERENCES `user` (`UserID`);
+  CONSTRAINT `Connections_ibfk_2` FOREIGN KEY (`UserID2`) REFERENCES `User` (`UserID`);
 
 --
 -- Constraints for table `Interests`
@@ -241,23 +241,23 @@ ADD
 ALTER TABLE
   `Interests`
 ADD
-  CONSTRAINT `Interests_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`),
+  CONSTRAINT `Interests_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
 ADD
   CONSTRAINT `Interests_ibfk_2` FOREIGN KEY (`InterestID`) REFERENCES `AvailableInterests` (`InterestID`);
 
 --
--- Constraints for table `profile`
+-- Constraints for table `Profile`
 --
 ALTER TABLE
-  `profile`
+  `Profile`
 ADD
-  CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`),
+  CONSTRAINT `Profile_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
 ADD
-  CONSTRAINT `profile_ibfk_2` FOREIGN KEY (`LocationID`) REFERENCES `location` (`LocationID`);
+  CONSTRAINT `Profile_ibfk_2` FOREIGN KEY (`LocationID`) REFERENCES `Location` (`LocationID`);
 
 ALTER TABLE
-  `block`
+  `Block`
 ADD
-  CONSTRAINT `block_ibfk_1` FOREIGN KEY (`BlockerID`) REFERENCES `user` (`UserID`),
+  CONSTRAINT `Block_ibfk_1` FOREIGN KEY (`BlockerID`) REFERENCES `User` (`UserID`),
 ADD
-  CONSTRAINT `block_ibfk_2` FOREIGN KEY (`BlockedID`) REFERENCES `user` (`UserID`);
+  CONSTRAINT `Block_ibfk_2` FOREIGN KEY (`BlockedID`) REFERENCES `User` (`UserID`);

@@ -1,2 +1,2 @@
 <?php
-define("SITE_NAME", "Dating Site");
+define("SITE_NAME", "Love Spark");
