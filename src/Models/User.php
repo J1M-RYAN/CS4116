@@ -2,37 +2,26 @@
 
 class User
 {
-    protected $db;
+    protected $mysqli;
     private $table = 'User';
 
     public function __construct()
     {
-        $this->db = Database::instance();
+        $this->mysqli = Database::instance();
     }
     public function emailExists($email)
     {
 
-        $stmt = $this->db->prepare('SELECT * FROM User;');
-        if (!$stmt) {
-            echo 'Error with stmt';
-            return 0;
+        $result = $this->mysqli->query('SELECT * FROM User;');
+        if (!$result) {
+            trigger_error('Invalid query: ' . $this->mysqli->error);
         }
-        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->rowCount() == 1;
+
+        return $result->num_rows == 1;
     }
 
     public function getUserFromEmail($email)
     {
-        $stmt = $this->db->prepare('SELECT * FROM `User` WHERE `Email` = :email');
-        if ($stmt) {
-
-            $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-            $stmt->execute();} else {
-            echo 'Somethings up here';
-            echo 'stmt: ' . $stmt;
-        }
-        return $stmt->fetch(PDO::FETCH_OBJ);
 
     }
 
