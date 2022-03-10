@@ -30,9 +30,18 @@ body {
     margin-left: 6px;
 }
 /* / Utilities */
+
 /* Navbar */
 .nav-link {
     color: white !important;
     font-weight: bold;
 }
 /* / Navbar */
+
+.bg-about {
+    background-image: url(./../images/bg.jpg);
+}
+
+.bg-how-does-it-work {
+    background-image: url(./../images/bg-globe.png);
+}
