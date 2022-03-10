@@ -30,3 +30,9 @@ body {
     margin-left: 6px;
 }
 /* / Utilities */
+/* Navbar */
+.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+/* / Navbar */
