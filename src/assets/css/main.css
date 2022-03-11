@@ -45,3 +45,32 @@ body {
 .bg-how-does-it-work {
     background-image: url(./../images/bg-globe.png);
 }
+/* / Footer */
+
+.rounded {
+    border-radius: 5px !important;
+}
+footer {
+  position: relative;
+  padding: 50px 0;
+}
+
+footer .logo-footer {
+  font-size: 28px;
+}
+
+footer.footer-bar {
+  padding: 30px 0;
+  border-top: 1px solid #ffffff;
+}
+
+footer .footer-text {
+  color: #adb5bd;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+footer .footer-text:hover {
+  color: #dee2e6;
+}
+/* / Footer Ends here */
