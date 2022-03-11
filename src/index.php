@@ -61,10 +61,10 @@ include_once "init.php";
                                 <a class="nav-link mx-2" href="#">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-white rounded-0 py-2 mx-2"><i class="fa fa-user"></i> LOG
-                                    IN</button>
-                                <button class="btn btn-red rounded-0 py-2"><i class="fa fa-user-plus"></i> SIGN
-                                    UP</button>
+                                <a href="#" button class="btn btn-white rounded-0 py-2 mx-2"><i class="fa fa-user"></i> LOG
+                                    IN</button> </a>
+                                <a href="#" button class="btn btn-red rounded-0 py-2"><i class="fa fa-user-plus"></i> SIGN
+                                    UP</button> </a>
                             </li>
                         </ul>
                     </div>
