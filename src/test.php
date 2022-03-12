@@ -24,7 +24,7 @@ include_once "init.php";
 
 </head>
 <body>
-    <?php require '_navvar.php' ?>
+    <?php require '_navbar.php' ?>
     <div class="container">
         <h1> Testing nav bar using component php </h1>
 </body>
