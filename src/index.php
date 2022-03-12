@@ -150,7 +150,10 @@ include_once "init.php";
                         <div class="d-flex justify-content-center mt-4">
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
-                        <p class="text-center h1 fw-bold text-white mt-4">29,991</p>
+                        <p class="text-center h1 fw-bold text-white mt-4"><?php 
+                            $temp = new User();
+                            echo $temp->getNumberMales();
+                        ?></p>
                         <p class="text-center h6 text-white fw-bold">Men Online</p>
                     </div>
                 </div>
@@ -162,7 +165,10 @@ include_once "init.php";
                         <div class="d-flex justify-content-center mt-4">
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
-                        <p class="text-center h1 fw-bold text-white mt-4">29,991</p>
+                        <p class="text-center h1 fw-bold text-white mt-4"><?php 
+                            $temp = new User();
+                            echo $temp->getNumberFemales();
+                        ?></p>
                         <p class="text-center h6 text-white fw-bold">Women Online</p>
                     </div>
                 </div>

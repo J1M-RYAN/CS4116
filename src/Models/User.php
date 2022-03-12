@@ -12,11 +12,13 @@ class User
     public function emailExists($email)
     {
 
-        $result = $this->mysqli->query('SELECT * FROM User;');
+        $stmt = $this->mysqli->prepare("SELECT * FROM User WHERE Email=?;");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
         if (!$result) {
             trigger_error('Invalid query: ' . $this->mysqli->error);
         }
-
         return $result->num_rows == 1;
     }
 
@@ -28,6 +30,26 @@ class User
     public function hash($password)
     {
         return password_hash($password, PASSWORD_BCRYPT);
+    }
+
+    public function getNumberMales(){
+        $result = $this->mysqli->query("SELECT COUNT(*) AS `count`
+        FROM User
+        INNER JOIN Profile
+        ON User.UserID = Profile.UserID
+        WHERE User.UserType='User' AND Gender='Male';");
+        $row = $result->fetch_assoc();
+        return $row["count"];
+    }
+
+    public function getNumberFemales(){
+        $result = $this->mysqli->query("SELECT COUNT(*) AS `count`
+        FROM User
+        INNER JOIN Profile
+        ON User.UserID = Profile.UserID
+        WHERE User.UserType='User' AND Gender='Female';");
+        $row = $result->fetch_assoc();
+        return $row["count"];
     }
 
 }
