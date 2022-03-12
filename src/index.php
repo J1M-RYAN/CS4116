@@ -205,6 +205,42 @@ include_once "init.php";
     </div>
     <!-- / How Does It Work -->
 
+    <!-- / Footer starts here -->
+    <footer class="bg-dark py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 mb-3">
+                    <div class="text-center">
+                        <p class="text-muted para-desc mx-auto mt-3">Enjoy your dating on LOVE SPARK and find the best
+                            match for yourself
+                            and make your life memorable.</p>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end container-->
+    </footer>
+    <footer class="footer-bar bg-dark">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 footer-bar">
+                    <div class="text-sm-left">
+                        <p class="mb-0 footer-text para-desc mx-auto">&copy; 2022 "LOVE SPARK" All rights Reserved.
+                            Design with
+                            <i class="mdi mdi-heart text-danger"></i>.
+                        </p>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end container-->
+    </footer>
+    <!-- / Footer ends here -->
+
     <!-- Bootstrap 5.0 JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
