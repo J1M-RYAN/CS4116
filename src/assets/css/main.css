@@ -79,7 +79,7 @@ footer .footer-text:hover {
 .signup-page{
   margin: 0px;
   padding: 0px;
-  background-image: url(bg-pg.png);
+  background-image: url(./../images/bg-pg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 120vh;
