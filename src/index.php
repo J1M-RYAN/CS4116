@@ -63,8 +63,8 @@ include_once "init.php";
                             <li class="nav-item">
                                 <a href="#" button class="btn btn-white rounded-0 py-2 mx-2"><i class="fa fa-user"></i> LOG
                                     IN</button> </a>
-                                <a href="#" button class="btn btn-red rounded-0 py-2"><i class="fa fa-user-plus"></i> SIGN
-                                    UP</button> </a>
+                                <a href="./signup.php"><button class="btn btn-red rounded-0 py-2 mx-2"><i class="fa fa-user"></i> SIGN
+                                    UP</button></a>
                             </li>
                         </ul>
                     </div>
@@ -91,9 +91,10 @@ include_once "init.php";
                     </p>
                     <div class="row">
                         <div class="col-md-6 my-2">
-                            <button class="btn btn-red btn-lg w-100 py-3 move-icon">
+                        <a href="./signup.php"><button class="btn btn-red btn-lg w-100 py-3 move-icon">
                                 Get Started Now <i class="fa fa-chevron-right"></i>
                             </button>
+                        </a>
                         </div>
                         <div class="col-md-6 my-2">
                             <button class="btn btn-white btn-lg w-100 py-3 move-icon">

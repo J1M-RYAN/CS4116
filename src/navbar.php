@@ -57,8 +57,8 @@ include_once "init.php";
                         <li class="nav-item">
                             <button class="btn btn-white rounded-0 py-2 mx-2"><i class="fa fa-user"></i> LOG
                                 IN</button>
-                            <button class="btn btn-red rounded-0 py-2" href="#"><i class="fa fa-user-plus"></i> SIGN
-                                UP</button>
+                            <a href="./signup.php"><button class="btn btn-red rounded-0 py-2 mx-2"><i class="fa fa-user"></i> SIGN
+                                UP</button></a>
                         </li>
                     </ul>
                 </div>
