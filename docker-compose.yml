@@ -44,7 +44,7 @@ services:
     ports:
      - 3306:3306
     volumes:
-      - ./resources/sql/Sample_2022.sql:/docker-entrypoint-initdb.d/Sample_2022.sql
+      - ./resources/sql/Group10_mySQL_Database.sql:/docker-entrypoint-initdb.d/Group10_mySQL_Database.sql
     environment:
       MYSQL_DATABASE: dating_db
       MYSQL_ROOT_PASSWORD: secret
