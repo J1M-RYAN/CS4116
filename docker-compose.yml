@@ -14,17 +14,23 @@ services:
   nginx:
       build:
         context: .
-        dockerfile: nginx.Dockerfile
+        dockerfile: nginx.prod.Dockerfile
       image: nginx
       container_name: nginx
       restart: unless-stopped
       ports:
-        - "80:80"
+        - 80:80
+        - 443:443
       volumes:
         - ./:/var/www
         - ./nginx/:/etc/nginx/conf.d/
       depends_on:
         - php-app
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
   
   db:
     platform: linux/x86_64

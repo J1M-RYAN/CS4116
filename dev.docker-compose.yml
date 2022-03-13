@@ -14,7 +14,7 @@ services:
   nginx:
       build:
         context: .
-        dockerfile: nginx.Dockerfile
+        dockerfile: nginx.dev.Dockerfile
       image: nginx
       container_name: nginx
       restart: unless-stopped
