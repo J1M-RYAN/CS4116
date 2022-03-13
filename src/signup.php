@@ -37,7 +37,10 @@ include_once "init.php";
       </div>
       <form action="#">
         <div class="input-box">
-          <input type="text" placeholder="Enter your name" required>
+          <input type="text" placeholder="First name" required>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Surname" required>
         </div>
         <div class="input-box">
           <input type="text" placeholder="Enter your email" required>
