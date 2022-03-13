@@ -1,54 +1,62 @@
 :root {
-    --main: #391866;
-    --red: #dd314e;
+  --main: #391866;
+  --red: #dd314e;
 }
 
 body {
-    font-family: Mulish !important;
-    background-color: #f4f4f4;
+  font-family: Mulish !important;
+  background-color: #f4f4f4;
 }
 
 /* Utilities */
-.text-main { color: var(--main) !important; }
-.bg-main { background-color: var(--main) !important; }
-.text-red { color: var(--red) !important; }
-.bg-red { background-color: var(--red) !important; }
+.text-main {
+  color: var(--main) !important;
+}
+.bg-main {
+  background-color: var(--main) !important;
+}
+.text-red {
+  color: var(--red) !important;
+}
+.bg-red {
+  background-color: var(--red) !important;
+}
 
 .btn-white {
-    color: var(--red) !important;
-    background: white !important;
+  color: var(--red) !important;
+  background: white !important;
 }
 .btn-red {
-    background-color: var(--red) !important;
-    color: white !important;
+  background-color: var(--red) !important;
+  color: white !important;
 }
 .move-icon i {
-    transition: .3s;
+  transition: 0.3s;
 }
 .move-icon:hover i {
-    transition: .3s;
-    margin-left: 6px;
+  transition: 0.3s;
+  margin-left: 6px;
 }
 /* / Utilities */
 
 /* Navbar */
 .nav-link {
-    color: white !important;
-    font-weight: bold;
+  color: white !important;
+  font-weight: bold;
 }
 /* / Navbar */
 
 .bg-about {
-    background-image: url(./../images/bg.jpg);
+  background-image: url(./../images/bg.jpg);
 }
 
 .bg-how-does-it-work {
-    background-image: url(./../images/bg-globe.png);
+  background-image: url(./../images/bg-globe.png);
 }
 /* / Footer */
 
 .rounded {
-    border-radius: 5px !important;
+  border-radius: 5px !important;
 }
 footer {
   position: relative;
@@ -76,10 +84,10 @@ footer .footer-text:hover {
 /* / Footer Ends here */
 
 /********* / sign up page *********/
-.signup-page{
+.signup-page {
   margin: 0px;
   padding: 0px;
-  background-image: url(./../images/bg-pg.jpg);
+  background-image: url(./../images/bg-pg.png);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 120vh;
@@ -87,7 +95,7 @@ footer .footer-text:hover {
   align-items: center;
   justify-content: center;
 }
-.wrapper-box{
+.wrapper-box {
   position: relative;
   max-width: 430px;
   width: 100%;
@@ -96,21 +104,21 @@ footer .footer-text:hover {
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-.wrapper-box h2{
+.wrapper-box h2 {
   position: relative;
   font-size: 22px;
   font-weight: 600;
   color: rgb(255, 254, 254);
   text-align: center;
 }
-.wrapper-box form{
+.wrapper-box form {
   margin-top: 30px;
 }
-.wrapper-box form .input-box{
+.wrapper-box form .input-box {
   height: 52px;
   margin: 18px 0;
 }
-form .input-box input{
+form .input-box input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -118,45 +126,45 @@ form .input-box input{
   font-size: 17px;
   font-weight: 400;
   color: #333;
-  border: 1.5px solid #C7BEBE;
+  border: 1.5px solid #c7bebe;
   border-bottom-width: 2.5px;
   border-radius: 6px;
   transition: all 0.3s ease;
 }
 .input-box input:focus,
-.input-box input:valid{
+.input-box input:valid {
   border-color: #dd314e;
 }
-form .policy{
+form .policy {
   display: flex;
   align-items: center;
 }
-form h3{
+form h3 {
   color: #707070;
   font-size: 14px;
   font-weight: 500;
   margin-left: 10px;
 }
-.input-box.button input{
+.input-box.button input {
   color: #fff;
   letter-spacing: 1px;
   border: none;
   background: #dd314e;
   cursor: pointer;
 }
-.input-box.button input:hover{
+.input-box.button input:hover {
   background: #391866;
 }
-form .text h3{
- color: #333;
- width: 100%;
- text-align: center;
+form .text h3 {
+  color: #333;
+  width: 100%;
+  text-align: center;
 }
-form .text h3 a{
+form .text h3 a {
   color: #dd314e;
   text-decoration: none;
 }
-form .text h3 a:hover{
+form .text h3 a:hover {
   text-decoration: underline;
 }
 /********** sign up page ends here***********/
