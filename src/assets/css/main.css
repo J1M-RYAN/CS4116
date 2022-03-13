@@ -80,6 +80,8 @@ footer .footer-text:hover {
   margin: 0px;
   padding: 0px;
   background-image: url(bg-pg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   align-items: center;
