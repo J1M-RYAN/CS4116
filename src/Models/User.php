@@ -32,7 +32,8 @@ class User
         return password_hash($password, PASSWORD_BCRYPT);
     }
 
-    public function getNumberMales(){
+    public function getNumberMales()
+    {
         $result = $this->mysqli->query("SELECT COUNT(*) AS `count`
         FROM User
         INNER JOIN Profile
@@ -42,7 +43,8 @@ class User
         return $row["count"];
     }
 
-    public function getNumberFemales(){
+    public function getNumberFemales()
+    {
         $result = $this->mysqli->query("SELECT COUNT(*) AS `count`
         FROM User
         INNER JOIN Profile
@@ -52,16 +54,17 @@ class User
         return $row["count"];
     }
 
-    public function getTotalUserCound(){
+    public function getTotalUserCound()
+    {
         $result = $this->mysqli->query("SELECT COUNT(*) AS `count`
         FROM User;");
         $row = $result->fetch_assoc();
         return $row["count"];
     }
 
-    public function getTotalUsersOnlineLastHour(){
-        SELECT COUNT(*) AS `count`
-        FROM User
-        WHERE TIMESTAMPDIFF(HOUR,User.LastLoginTime ,CURRENT_TIMESTAMP())< 1;
-    }
+    // public function getTotalUsersOnlineLastHour(){
+    //     SELECT COUNT(*) AS `count`
+    //     FROM User
+    //     WHERE TIMESTAMPDIFF(HOUR,User.LastLoginTime ,CURRENT_TIMESTAMP())< 1;
+    // }
 }
