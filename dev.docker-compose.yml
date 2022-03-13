@@ -23,6 +23,7 @@ services:
       volumes:
         - ./:/var/www
         - ./nginx/:/etc/nginx/conf.d/
+        - ./certbot/www:/var/www/certbot/:ro
       depends_on:
         - php-app
   
