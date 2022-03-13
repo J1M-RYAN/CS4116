@@ -41,9 +41,8 @@ CREATE TABLE `AvailableInterests` (
 -- Table structure for table `Connections`
 --
 CREATE TABLE `Connections` (
-  `ConnectionID` int(11) NOT NULL,
-  `UserID1` int(11) NOT NULL COMMENT 'Which User initiated the connection?',
-  `UserID2` int(11) NOT NULL COMMENT 'Which User received the connection',
+  `UserID` int(11) NOT NULL COMMENT 'Which User initiated the connection?',
+  `ConnectionID` int(11) NOT NULL COMMENT 'Which User received the connection',
   `ConnectionDate` date NOT NULL COMMENT 'When was the connection made?',
   `Status` enum('Pending', 'Connected', 'Declined') NOT NULL COMMENT 'What is the Status of the connection?'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
@@ -94,13 +93,13 @@ CREATE TABLE `Profile` (
     'Judaism',
     'Buddhism',
     'Islam',
-    'Sihkism',
+    'Sikhism',
     'Hinduism'
   ) NOT NULL,
   `Children` binary(1) NOT NULL COMMENT 'Boolean type representing whether the User has children or not',
   `Description` blob NOT NULL COMMENT 'Blob type because this will contain a free text description of the person',
   `Banned` binary(1) NOT NULL COMMENT 'Has the User been banned by an admin?',
-  `Photo` varchar(26) NOT NULL COMMENT 'We should allow Users to upload photos to the site; this field contains the name of the photo they have uploaded',
+  `Photo` varchar(26) NOT NULL COMMENT 'We should allow Users to upload photos to the site; this field contains the link to the photo they have uploaded',
   `LocationID` int(11) NOT NULL COMMENT 'The Location ID of the town the User is in'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
@@ -121,7 +120,6 @@ CREATE TABLE `User` (
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Store personal information about the User. ';
 
 CREATE TABLE `Report` (
-  `ReportID` int(11) NOT NULL AUTO_INCREMENT,
   `ReporterID` int(11) NOT NULL COMMENT 'INT representing the person making the Reports ID',
   `ReportedID` int(11) NOT NULL COMMENT 'INT representing the person the Report is about',
   `Report` varchar(200) NOT NULL COMMENT 'Content of the Report as a string',
@@ -131,8 +129,7 @@ CREATE TABLE `Report` (
     'Fake Profile',
     'Hate speech',
     'Other'
-  ) NOT NULL COMMENT 'Enum representing the type of Report',
-  PRIMARY KEY (`ReportID`)
+  ) NOT NULL COMMENT 'Enum representing the type of Report'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores Reports made by the Users.';
 
 CREATE TABLE `Location` (
@@ -177,11 +174,9 @@ CREATE TABLE `Location` (
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores all available Locations.';
 
 CREATE TABLE `Block` (
-  `BlockID` int(11) NOT NULL AUTO_INCREMENT,
   `BlockerID` int(11) NOT NULL COMMENT 'INT representing the person who is Blocking another User',
   `BlockedID` int(11) NOT NULL COMMENT 'INT representing the person who is Blocked',
-  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the Report was made',
-  PRIMARY KEY (`BlockId`)
+  `Date` DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL COMMENT 'Records when the Report was made'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores Blocks made by the Users.';
 
 ALTER TABLE
@@ -195,11 +190,9 @@ ADD
 ALTER TABLE
   `Connections`
 ADD
-  PRIMARY KEY (`ConnectionID`),
+  KEY `UserID` (`UserID`),
 ADD
-  KEY `UserID1` (`UserID1`),
-ADD
-  KEY `UserID2` (`UserID2`);
+  KEY `ConnectionID` (`ConnectionID`);
 
 --
 -- Indexes for table `Interests`
@@ -231,9 +224,9 @@ ADD
 ALTER TABLE
   `Connections`
 ADD
-  CONSTRAINT `Connections_ibfk_1` FOREIGN KEY (`UserID1`) REFERENCES `User` (`UserID`),
+  CONSTRAINT `Connections_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `User` (`UserID`),
 ADD
-  CONSTRAINT `Connections_ibfk_2` FOREIGN KEY (`UserID2`) REFERENCES `User` (`UserID`);
+  CONSTRAINT `Connections_ibfk_2` FOREIGN KEY (`ConnectionID`) REFERENCES `User` (`UserID`);
 
 --
 -- Constraints for table `Interests`

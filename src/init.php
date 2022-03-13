@@ -13,4 +13,4 @@ include_once './constants.php';
 include_once './Models/User.php';
 include_once './Database.php';
 
-$userObj = new User();
+// $userObj = new User();
