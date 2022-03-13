@@ -7,6 +7,8 @@ RUN apk update && apk add \
     vim 
 
 RUN docker-php-ext-install mysqli
+RUN docker-php-ext-enable mysqli
+
 
 RUN addgroup -g 1000 -S www && \
     adduser -u 1000 -S www -G www
