@@ -26,6 +26,8 @@ services:
       volumes:
         - ./:/var/www
         - ./nginx-prod/:/etc/nginx/conf.d/
+        - /tmp/acme_challenge:/tmp/acme_challenge
+        - /etc/letsencrypt:/etc/letsencrypt:ro
       depends_on:
         - php-app
 
