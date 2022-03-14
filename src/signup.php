@@ -20,8 +20,8 @@ include_once "init.php";
   <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
 
   <!-- Main Css File -->
-  <link rel="stylesheet" href="main.css">
-
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <title>Registration</title>
 
 </head>
 
@@ -32,9 +32,6 @@ include_once "init.php";
 
     <div class="wrapper-box">
       <h2>Registration</h2>
-      <div>
-        
-      </div>
       <form action="#">
         <div class="input-box">
           <input type="text" placeholder="First name" required>
@@ -53,13 +50,13 @@ include_once "init.php";
         </div>
         <div class="policy">
           <input type="checkbox">
-          <h3>I accept all terms & condition</h3>
+          <h3>I accept all terms & conditions</h3>
         </div>
         <div class="input-box button">
           <input type="Submit" value="Register Now">
         </div>
         <div class="text">
-          <h3>Already have an account? <a href="#">Login now</a></h3>
+          <h3>Already have an account? <a href="/login">Login now</a></h3>
         </div>
       </form>
     </div>

@@ -25,54 +25,15 @@ include_once "init.php";
     <!-- Fav icon -->
     <link rel="shortcut icon" href="./assets/images/Logo.png" type="image/x-icon">
 
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
     <title>Love Spark - It All Starts With A Date</title>
 </head>
 
 <body>
 
-    <!-- Header Start -->
-    <div class="container-fluid py-3" style="background: #371661;">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background: #371661;">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="./assets/images/Logo.png" class="img-fluid">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <!--  -->
-                    </ul>
-                    <div class="d-flex">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-2" href="#">Discover</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-2" href="#">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-2" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" button class="btn btn-white rounded-0 py-2 mx-2"><i class="fa fa-user"></i> LOG
-                                    IN</button> </a>
-                                <a href="./signup.php"><button class="btn btn-red rounded-0 py-2 mx-2"><i class="fa fa-user"></i> SIGN
-                                    UP</button></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- / Header End -->
+   <?php include "./navbar.php"?>
 
     <!-- Hero -->
     <div class="container-fluid bg-main py-5">
@@ -86,20 +47,22 @@ include_once "init.php";
                         <span class="text-red">Dating</span>
                     </p>
                     <p class="h4 text-white my-5">
-                        STill looking for your significant other ? Love SPpark is the place for you!
-                        Join us now to meet single men adn Women.
+                        Still looking for your significant other? Love Spark is the place for you!
+                        Join us now to meet single men and Women.
                     </p>
                     <div class="row">
                         <div class="col-md-6 my-2">
-                        <a href="./signup.php"><button class="btn btn-red btn-lg w-100 py-3 move-icon">
+                        <a href="./signup"><button class="btn btn-red btn-lg w-100 py-3 move-icon">
                                 Get Started Now <i class="fa fa-chevron-right"></i>
                             </button>
                         </a>
                         </div>
                         <div class="col-md-6 my-2">
+                            <a href="/about">
                             <button class="btn btn-white btn-lg w-100 py-3 move-icon">
                                 Learn More <i class="fa fa-chevron-down"></i>
                             </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -151,10 +114,10 @@ include_once "init.php";
                         <div class="d-flex justify-content-center mt-4">
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
-                        <p class="text-center h1 fw-bold text-white mt-4"><?php 
-                            $temp = new User();
-                            echo $temp->getNumberMales();
-                        ?></p>
+                        <p class="text-center h1 fw-bold text-white mt-4"><?php
+$temp = new User();
+echo $temp->getNumberMales();
+?></p>
                         <p class="text-center h6 text-white fw-bold">Men Online</p>
                     </div>
                 </div>
@@ -166,10 +129,10 @@ include_once "init.php";
                         <div class="d-flex justify-content-center mt-4">
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
-                        <p class="text-center h1 fw-bold text-white mt-4"><?php 
-                            $temp = new User();
-                            echo $temp->getNumberFemales();
-                        ?></p>
+                        <p class="text-center h1 fw-bold text-white mt-4"><?php
+$temp = new User();
+echo $temp->getNumberFemales();
+?></p>
                         <p class="text-center h6 text-white fw-bold">Women Online</p>
                     </div>
                 </div>
@@ -210,44 +173,7 @@ include_once "init.php";
             </div>
         </div>
     </div>
-    <!-- / How Does It Work -->
-
-    <!-- / Footer starts here -->
-    <footer class="bg-dark py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 mb-3">
-                    <div class="text-center">
-                        <p class="text-muted para-desc mx-auto mt-3">Enjoy your dating on LOVE SPARK and find the best
-                            match for yourself
-                            and make your life memorable.</p>
-                    </div>
-                </div>
-                <!--end col-->
-            </div>
-            <!--end row-->
-        </div>
-        <!--end container-->
-    </footer>
-    <footer class="footer-bar bg-dark">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-sm-12 footer-bar">
-                    <div class="text-sm-left">
-                        <p class="mb-0 footer-text para-desc mx-auto">&copy; 2022 "LOVE SPARK" All rights Reserved.
-                            Design with
-                            <i class="mdi mdi-heart text-danger"></i>.
-                        </p>
-                    </div>
-                </div>
-                <!--end col-->
-            </div>
-            <!--end row-->
-        </div>
-        <!--end container-->
-    </footer>
-    <!-- / Footer ends here -->
-
+   <?php include "./footer.php"?>
     <!-- Bootstrap 5.0 JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
