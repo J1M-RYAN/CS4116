@@ -177,6 +177,9 @@ form .text h3 a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url(bg-pg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .wrapper{
   width: 380px;
