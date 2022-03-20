@@ -10,6 +10,8 @@ services:
     restart: unless-stopped
     volumes:
      - ./:/var/www 
+    depends_on:
+      - db
   
   nginx:
       build:
@@ -25,6 +27,7 @@ services:
         - ./nginx-dev/:/etc/nginx/conf.d/
       depends_on:
         - php-app
+        - admin_portal
   
   db:
     platform: linux/x86_64
@@ -41,6 +44,18 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password 
 
+  admin_portal:
+    build:
+      context: .
+      dockerfile: node.dev.Dockerfile
+    image: node
+    container_name: admin_portal
+    depends_on:
+      - db
+      - phpmyadmin
+    ports:
+      - 3002:3002
+    
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin
@@ -52,4 +67,6 @@ services:
        PMA_HOST: db
        PMA_USER: root
        PMA_PASSWORD: secret
+    depends_on:
+      - db 
 
