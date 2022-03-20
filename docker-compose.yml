@@ -30,14 +30,8 @@ services:
         - /etc/letsencrypt:/etc/letsencrypt:ro
       depends_on:
         - php-app
+        - admin_portal
 
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-    depends_on:
-      - nginx
-  
   db:
     platform: linux/x86_64
     image: mysql:5.7.37
@@ -52,6 +46,18 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_USER: user
       MYSQL_PASSWORD: password 
+
+  admin_portal:
+    build:
+      context: .
+      dockerfile: node.prod.Dockerfile
+    image: node
+    container_name: admin_portal
+    depends_on:
+      - db
+      - phpmyadmin
+    ports:
+      - 3002:3002
 
   phpmyadmin:
     image: phpmyadmin
