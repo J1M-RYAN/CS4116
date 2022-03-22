@@ -36,31 +36,64 @@ include_once "init.php";
 
     <div class="wrapper-box">
       <h2>Registration</h2>
-      <form action="#">
+      <form action="signup.inc.php" method="post">
         <div class="input-box">
-          <input type="text" placeholder="First name" required>
+          <input type="text" name="Firstname" placeholder="First name" required>
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Surname" required>
+          <input type="text" name="Surname" placeholder="Surname" required>
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Enter your email" required>
+          <input type="text" name="email" placeholder="Enter your email" required>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Create password" required>
+          <input type="password" name="pwd" placeholder="Create password" required>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Confirm password" required>
+          <input type="password" name="pwdrepeat" placeholder="Confirm password" required>
         </div>
         <div class="policy">
           <input type="checkbox">
           <h3>I accept all terms & conditions</h3>
         </div>
         <div class="input-box button">
-          <input type="Submit" value="Register Now">
+          <input type="Submit" name="submit" value="Register Now">
         </div>
         <div class="text">
           <h3>Already have an account? <a href="/login">Login now</a></h3>
+        </div>
+        <div>
+          <?php 
+            if(isset($_GET["error"])){
+                if($_GET["error"] == "emptyinput"){
+                    echo "<p>Fill in all fields!<p>";
+                }
+                else if($_GET["error"] == "invalidfirstname"){
+                    echo "<p>Choose a proper firstname!<p>";
+                }
+                else if($_GET["error"] == "invalidsurname"){
+                  echo "<p>Choose a proper surname!<p>";
+              }
+                else if($_GET["error"] == "invalidemail"){
+                    echo "<p>Choose a proper email!<p>";
+                }
+                else if($_GET["error"] == "passwordsdontmatch"){
+                    echo "<p>Passwords don't match!<p>";
+                }
+                else if($_GET["error"] == "stmtfailed"){
+                    echo "<p>Something went wrong try again!<p>";
+                }
+                else if($_GET["error"] == "emailtaken"){
+                    echo "<p>Email is already taken!<p>";
+                }
+                else if($_GET["error"] == "emptyinput"){
+                    echo "<p>Fill in all fields!<p>";
+                }
+                else if($_GET["error"] == "none"){
+                    echo "<p>You have signed up!<p>";
+                }
+            }
+          ?>
         </div>
       </form>
     </div>
