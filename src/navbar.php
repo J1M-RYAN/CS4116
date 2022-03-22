@@ -1,5 +1,5 @@
 
-    <!-- Header Start -->
+<!-- Header Start -->
   <div class="container-fluid py-3" style="background: #371661;">
     <nav class="navbar navbar-expand-lg navbar-light" style="background: #371661;">
         <div class="container">
@@ -21,22 +21,29 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="/discover">Discover</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="/profile">Profile</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link mx-2" href="/contact">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/login">
-                            <button class="btn btn-white rounded-0 py-2 mx-2"><i class="fa fa-user"></i> LOG
-                                IN</button>
-                            </a>
-                            <a href="/signup"><button class="btn btn-red rounded-0 py-2 mx-2"><i class="fa fa-user"></i> SIGN
-                                UP</button></a>
-                        </li>
+
+                        <?php 
+                            if(isset($_SESSION["userEmail"])){
+                                echo "<li class='nav-item'><a class='nav-link mx-2' href='/discover'>Discover</a></li>";
+                                echo "<li class='nav-item'><a class='nav-link mx-2' href='/profile'>Profile</a></li>";
+                                echo "<li class='nav-item'>
+                                <a href='/logout.inc.php'>
+                                <button class='btn btn-red rounded-0 py-2 mx-2'><i class='fa fa-user'></i> LOG
+                                    OUT</button>
+                                </a></li>";
+                            } else {
+                                echo "<li class='nav-item'>
+                                <a href='/login'>
+                                <button class='btn btn-white rounded-0 py-2 mx-2'><i class='fa fa-user'></i> LOG
+                                    IN</button>
+                                </a>
+                                <a href='/signup'><button class='btn btn-red rounded-0 py-2 mx-2'><i class='fa fa-user'></i> SIGN
+                                    UP</button></a>
+                            </li>";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
