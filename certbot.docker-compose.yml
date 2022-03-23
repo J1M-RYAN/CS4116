@@ -4,7 +4,7 @@ services:
   letsencrypt:
     container_name: 'certbot-service'
     image: certbot/certbot
-    command: sh -c "certbot certonly --webroot -w /tmp/acme_challenge -d lovespark.xyz -d www.lovespark.xyz -d admin.lovespark.xyz  --agree-tos --force-renew --email jimmih15@gmail.com --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
+    command: sh -c "certbot certonly --webroot -w /tmp/acme_challenge -d lovespark.xyz -d www.lovespark.xyz -d admin.lovespark.xyz -d phpmyadmin.lovespark.xyz  --agree-tos --force-renew --email jimmih15@gmail.com --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
     entrypoint: ""
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
