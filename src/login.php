@@ -18,13 +18,13 @@
   <div class="login-page">
     <div class="wrapper">
       <div class="title">Login</div>
-      <form action="#">
+      <form action="login.inc.php" method="post">
         <div class="field">
-          <input type="text" required>
+          <input type="text" name="email" required>
           <label>Email Address</label>
         </div>
         <div class="field">
-          <input type="password" required>
+          <input type="password" name="pwd" required>
           <label>Password</label>
         </div>
         <div class="content">
@@ -35,10 +35,20 @@
           <div class="pass-link"><a href="#">Forgot password?</a></div>
         </div>
         <div class="field">
-          <input type="submit" value="Login Now">
+          <input type="submit" name="submit" value="Login Now">
         </div>
         <div class="signup-link">Not a member? <a href="/signup">Signup now</a></div>
       </form>
+      <?php 
+            if(isset($_GET["error"])){
+                if($_GET["error"] == "emptyinput"){
+                    echo "<p>Fill in all fields!<p>";
+                }
+                else if($_GET["error"] == "wronglogin"){
+                    echo "<p>Incorrect login information!<p>";
+                }
+            }
+        ?>  
     </div>
   </div>
   <!-- Bootstrap 5.0 JS -->
