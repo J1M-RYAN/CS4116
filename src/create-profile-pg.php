@@ -192,15 +192,15 @@
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Age</span>
-                        <input type="number" min="18" max="200" placeholder="Enter your age" required>
+                        <input type="number" min="18" max="200" name ="age" placeholder="Enter your age" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Height</span>
-                        <input type="text" pattern="[1-9]{1}-[0-11]{1,2}" placeholder="Enter your height(feet-inches ie 6-5)" required>
+                        <input type="text" pattern="[1-9]{1}-[0-11]{1,2}" name="height" placeholder="Enter your height(feet-inches ie 6-5)" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Star Sign</span>
-                        <select name="Star Sign">
+                        <select name="starsign">
                             <option value="Aries">Aries</option>
                             <option value="Taurus">Taurus</option>
                             <option value="Gemini">Gemini</option>
@@ -217,7 +217,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Religion</span>
-                        <select name="Religion">
+                        <select name="religion">
                             <option value="Athiest">Athiest</option>
                             <option value="Christian">Christian</option>
                             <option value="Judaism">Judaism</option>
@@ -229,7 +229,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Loaction</span>
-                        <select name="Loaction">
+                        <select name="loaction">
                             <option value="antrim">Antrim</option>
                             <option value="armagh">Armagh</option>
                             <option value="carlow">Carlow</option>
@@ -266,7 +266,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Intrests</span>
-                        <select name="Intrests">
+                        <select name="intrests">
                             <option value="Reading">Reading</option>
                             <option value="Woodworking">Woodworking</option>
                             <option value="Gardening">Gardening</option>

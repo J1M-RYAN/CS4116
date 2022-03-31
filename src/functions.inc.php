@@ -132,3 +132,23 @@
         }
 
     }
+
+    //INVALID AGE
+
+    function invalidAge($age) {
+        $result = false; 
+        if($age > 17 || $age < 201)){
+             $result = true;
+        } 
+        return $result;
+    }
+
+    //INVALID HEIGHT
+
+    function invalidHeight($height) {
+        $result = false; 
+        if(!preg_match("/^[1-9]{1}-[0-11]{1,2}$/", $height)){
+             $result = true;
+        } 
+        return $result;
+    }
