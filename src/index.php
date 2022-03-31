@@ -61,7 +61,7 @@ include_once "init.php";
                         </a>
                         </div>
                         <div class="col-md-6 my-2">
-                            <a href="/about">
+                            <a href="#work">
                             <button class="btn btn-white btn-lg w-100 py-3 move-icon">
                                 Learn More <i class="fa fa-chevron-down"></i>
                             </button>
@@ -144,7 +144,7 @@ echo $temp->getNumberFemales();
     </div>
     <!-- / Data Section -->
     <!-- How Does It Work -->
-    <div class="container-fluid py-5 bg-how-does-it-work bg-main">
+    <div class="container-fluid py-5 bg-how-does-it-work bg-main" id="work">
         <div class="container py-5">
             <p class="text-red text-center fw-bold h4">How Does It Work?</p>
             <p class="text-white text-center fw-bold h1">You're Just 3 Steps Away From A Great Date</p>
