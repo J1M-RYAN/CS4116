@@ -192,35 +192,94 @@
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Age</span>
-                        <input type="text" placeholder="Enter your age" required>
+                        <input type="number" min="18" max="200" placeholder="Enter your age" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Height</span>
-                        <input type="text" placeholder="Enter your height" required>
+                        <input type="text" pattern="[1-9]{1}-[0-11]{1,2}" placeholder="Enter your height(feet-inches ie 6-5)" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Star Sign</span>
-                        <input type="text" placeholder="Enter your star sign" required>
+                        <select name="Star Sign">
+                            <option value="Aries">Aries</option>
+                            <option value="Taurus">Taurus</option>
+                            <option value="Gemini">Gemini</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Leo">Leo</option>
+                            <option value="Virgo">Virgo</option>
+                            <option value="Libra">Libra</option>
+                            <option value="Scorpio">Scorpio</option>
+                            <option value="Sagittarius">Sagittarius</option>
+                            <option value="Capricorn">Capricorn</option>
+                            <option value="Aquarius">Aquarius</option>
+                            <option value="Pisces">Pisces</option>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Religion</span>
-                        <input type="text" placeholder="Enter your religion" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="text" placeholder="Enter your email" required>
+                        <select name="Religion">
+                            <option value="Athiest">Athiest</option>
+                            <option value="Christian">Christian</option>
+                            <option value="Judaism">Judaism</option>
+                            <option value="Buddhism">Buddhism</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Sikhism">Sikhism</option>
+                            <option value="Hinduism">Hinduism</option>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Loaction</span>
-                        <input type="text" placeholder="Enter your location" required>
+                        <select name="Loaction">
+                            <option value="antrim">Antrim</option>
+                            <option value="armagh">Armagh</option>
+                            <option value="carlow">Carlow</option>
+                            <option value="cavan">Cavan</option>
+                            <option value="clare">Clare</option>
+                            <option value="cork">Cork</option>
+                            <option value="derry">Derry</option>
+                            <option value="donegal">Donegal</option>
+                            <option value="down">Down</option>
+                            <option value="dublin">Dublin</option>
+                            <option value="fermanagh">Fermanagh</option>
+                            <option value="galway">Galway</option>
+                            <option value="kerry">Kerry</option>
+                            <option value="kildare">Kildare</option>
+                            <option value="kilkenny">Kilkenny</option>
+                            <option value="laois">Laois</option>
+                            <option value="leitrim">Leitrim</option>
+                            <option value="limerick">Limerick</option>
+                            <option value="longford">Longford</option>
+                            <option value="louth">Louth</option>
+                            <option value="mayo">Mayo</option>
+                            <option value="meath">Meath</option>
+                            <option value="monaghan">Monaghan</option>
+                            <option value="offaly">Offaly</option>
+                            <option value="roscommon">Roscommon</option>
+                            <option value="sligo">Sligo</option>
+                            <option value="tipperary">Tipperary</option>
+                            <option value="tyrone">Tyrone</option>
+                            <option value="waterford">Waterford</option>
+                            <option value="westmeath">Westmeath</option>
+                            <option value="wexford">Wexford</option>
+                            <option value="wicklow">Wicklow</option>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Intrests</span>
-                        <input type="text" placeholder="Enter your intrests" required>
+                        <select name="Intrests">
+                            <option value="Reading">Reading</option>
+                            <option value="Woodworking">Woodworking</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="Video Games">Video Games</option>
+                            <option value="Fishing">Fishing</option>
+                            <option value="Walking">Walking</option>
+                            <option value="Yoga">Yoga</option>
+                            <option value="Traveling">Traveling</option>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Description</span>
-                        <input type="text" placeholder="description about you" required>
+                        <input type="text" name="description" placeholder="description about you" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Upload your photo</span>
