@@ -176,7 +176,7 @@
                 width: 5px;
             }
         }
-        
+
     </style>
     <!--------Internal style sheet ends here---->
 </head>
@@ -196,72 +196,43 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Height</span>
-                        <input type="text" pattern="[1-9]{1}-[0-11]{1,2}" name="height" placeholder="Enter your height(feet-inches ie 6-5)" required>
+                        <input type="number"  name="height" placeholder="Enter your height in centimeters" min=50 max=270 required>
                     </div>
                     <div class="input-box">
                         <span class="details">Star Sign</span>
                         <select name="starsign">
-                            <option value="Aries">Aries</option>
-                            <option value="Taurus">Taurus</option>
-                            <option value="Gemini">Gemini</option>
-                            <option value="Cancer">Cancer</option>
-                            <option value="Leo">Leo</option>
-                            <option value="Virgo">Virgo</option>
-                            <option value="Libra">Libra</option>
-                            <option value="Scorpio">Scorpio</option>
-                            <option value="Sagittarius">Sagittarius</option>
-                            <option value="Capricorn">Capricorn</option>
-                            <option value="Aquarius">Aquarius</option>
-                            <option value="Pisces">Pisces</option>
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "StarSign");
+foreach ($list_of_enums as $religion) {
+    echo '<option value=' . $religion . '>' . $religion . '</option>';
+}
+?>
                         </select>
                     </div>
                     <div class="input-box">
                         <span class="details">Religion</span>
                         <select name="religion">
-                            <option value="Athiest">Athiest</option>
-                            <option value="Christian">Christian</option>
-                            <option value="Judaism">Judaism</option>
-                            <option value="Buddhism">Buddhism</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Sikhism">Sikhism</option>
-                            <option value="Hinduism">Hinduism</option>
+                             <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Religion");
+foreach ($list_of_enums as $religion) {
+    echo '<option value=' . $religion . '>' . $religion . '</option>';
+}
+?>
                         </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Loaction</span>
-                        <select name="loaction">
-                            <option value="antrim">Antrim</option>
-                            <option value="armagh">Armagh</option>
-                            <option value="carlow">Carlow</option>
-                            <option value="cavan">Cavan</option>
-                            <option value="clare">Clare</option>
-                            <option value="cork">Cork</option>
-                            <option value="derry">Derry</option>
-                            <option value="donegal">Donegal</option>
-                            <option value="down">Down</option>
-                            <option value="dublin">Dublin</option>
-                            <option value="fermanagh">Fermanagh</option>
-                            <option value="galway">Galway</option>
-                            <option value="kerry">Kerry</option>
-                            <option value="kildare">Kildare</option>
-                            <option value="kilkenny">Kilkenny</option>
-                            <option value="laois">Laois</option>
-                            <option value="leitrim">Leitrim</option>
-                            <option value="limerick">Limerick</option>
-                            <option value="longford">Longford</option>
-                            <option value="louth">Louth</option>
-                            <option value="mayo">Mayo</option>
-                            <option value="meath">Meath</option>
-                            <option value="monaghan">Monaghan</option>
-                            <option value="offaly">Offaly</option>
-                            <option value="roscommon">Roscommon</option>
-                            <option value="sligo">Sligo</option>
-                            <option value="tipperary">Tipperary</option>
-                            <option value="tyrone">Tyrone</option>
-                            <option value="waterford">Waterford</option>
-                            <option value="westmeath">Westmeath</option>
-                            <option value="wexford">Wexford</option>
-                            <option value="wicklow">Wicklow</option>
+                        <span class="details">Location</span>
+
+                        <select name="county">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Location", "County");
+foreach ($list_of_enums as $county) {
+    echo '<option value=' . $county . '>' . $county . '</option>';
+}
+?>
                         </select>
                     </div>
                     <div class="input-box">

@@ -19,6 +19,11 @@
   <div class="login-page">
     <div class="wrapper">
       <div class="title">Login</div>
+      <?php
+if (isset($_GET["notification"])) {
+    echo "<div class='alert alert-success' role='alert'>" . $_GET["notification"] . "</div>";
+}
+?>
       <form action="login.inc.php" method="post">
         <div class="field">
           <input type="text" name="email" required>
@@ -40,16 +45,15 @@
         </div>
         <div class="signup-link">Not a member? <a href="/signup">Signup now</a></div>
       </form>
-      <?php 
-            if(isset($_GET["error"])){
-                if($_GET["error"] == "emptyinput"){
-                    echo "<p>Fill in all fields!<p>";
-                }
-                else if($_GET["error"] == "wronglogin"){
-                    echo "<p>Incorrect login information!<p>";
-                }
-            }
-        ?>  
+      <?php
+if (isset($_GET["error"])) {
+    if ($_GET["error"] == "emptyinput") {
+        echo "<p>Fill in all fields!<p>";
+    } else if ($_GET["error"] == "wronglogin") {
+        echo "<p>Incorrect login information!<p>";
+    }
+}
+?>
     </div>
   </div>
   <!-- Footer  -->
