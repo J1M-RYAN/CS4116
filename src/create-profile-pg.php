@@ -204,8 +204,8 @@
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "StarSign");
-foreach ($list_of_enums as $religion) {
-    echo '<option value=' . $religion . '>' . $religion . '</option>';
+foreach ($list_of_enums as $StarSign) {
+    echo '<option value=' . $StarSign . '>' . $StarSign . '</option>';
 }
 ?>
                         </select>
