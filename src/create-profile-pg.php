@@ -245,8 +245,10 @@ foreach ($list_of_enums as $religion) {
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Location", "County");
 echo '<option disabled selected value> -- select an option -- </option>';
+$valueCount = 1;
 foreach ($list_of_enums as $county) {
-    echo '<option value=' . $county . '>' . $county . '</option>';
+    echo '<option value=' . $valueCount . '>' . $county . '</option>';
+    $valueCount = $valueCount + 1;
 }
 ?>
                         </select>
