@@ -134,7 +134,6 @@ CREATE TABLE `Report` (
 
 CREATE TABLE `Location` (
   `LocationID` int(11) NOT NULL AUTO_INCREMENT,
-  `Town` varchar(20) NOT NULL COMMENT 'String for the town/city name',
   `County` enum(
     'Antrim',
     'Armagh',
@@ -168,10 +167,22 @@ CREATE TABLE `Location` (
     'Westmeath',
     'Wexford',
     'Wicklow'
-  ) NOT NULL COMMENT 'String representing the county the town is in',
-  `Province` enum('Munster', 'Leinster', 'Ulster', 'Connaught') NOT NULL COMMENT 'Enum representing the province of the Location',
+  ) NOT NULL COMMENT 'String representing the county',
   PRIMARY KEY (`LocationID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COMMENT = 'Stores all available Locations.';
+
+-- --------------------------------------------------------
+--
+-- Populate `Location` Table
+--
+INSERT INTO `Location` (`LocationID`, `County`) 
+VALUES ('1', 'Antrim'), ('2', 'Armagh'), ('3', 'Carlow'), ('4', 'Cavan'), ('5', 'Clare'),
+       ('6', 'Cork'), ('7', 'Derry'), ('8', 'Donegal'), ('9', 'Down'), ('10', 'Dublin'),
+       ('11', 'Fermanagh'), ('12', 'Galway'), ('13', 'Kerry'), ('14', 'Kildare'), ('15', 'Kilkenny'),
+       ('16', 'Laois'), ('17', 'Leitrim'), ('18', 'Limerick'), ('19', 'Longford'), ('20', 'Louth'),
+       ('21', 'Mayo'), ('22', 'Meath'), ('23', 'Monaghan'), ('24', 'Offaly'), ('25', 'Roscommon'),
+       ('26', 'Sligo'), ('27', 'Tipperary'), ('28', 'Tyrone'), ('29', 'Waterford'), ('30', 'Westmeath'),
+       ('31', 'Wexford'), ('32', 'Wicklow');
 
 CREATE TABLE `Block` (
   `BlockerID` int(11) NOT NULL COMMENT 'INT representing the person who is Blocking another User',
