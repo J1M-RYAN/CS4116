@@ -199,69 +199,6 @@
                         <input type="number"  name="height" placeholder="Enter your height in centimeters" min=50 max=270 required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Star Sign</span>
-                        <select name="starsign">
-                            <?php
-include_once "functions.inc.php";
-$list_of_enums = getEnumList("Profile", "StarSign");
-foreach ($list_of_enums as $StarSign) {
-    echo '<option value=' . $StarSign . '>' . $StarSign . '</option>';
-}
-?>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Religion</span>
-                        <select name="religion">
-                             <?php
-include_once "functions.inc.php";
-$list_of_enums = getEnumList("Profile", "Religion");
-foreach ($list_of_enums as $religion) {
-    echo '<option value=' . $religion . '>' . $religion . '</option>';
-}
-?>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">County</span>
-
-                        <select name="county">
-                            <?php
-include_once "functions.inc.php";
-$list_of_enums = getEnumList("Location", "County");
-foreach ($list_of_enums as $county) {
-    echo '<option value=' . $county . '>' . $county . '</option>';
-}
-?>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Intrests</span>
-                        <select name="intrests">
-                            <option value="Reading">Reading</option>
-                            <option value="Woodworking">Woodworking</option>
-                            <option value="Gardening">Gardening</option>
-                            <option value="Video Games">Video Games</option>
-                            <option value="Fishing">Fishing</option>
-                            <option value="Walking">Walking</option>
-                            <option value="Yoga">Yoga</option>
-                            <option value="Traveling">Traveling</option>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Description</span>
-                        <input type="text" name="description" placeholder="description about you" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Upload your photo</span>
-                        <input type="file" placeholder="Upload your photo">
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Childrens</span>
-                        <input type="number" min="0" max="25" name ="childrens" placeholder="How many childrens you have" required>
-                    </div>
-                </div>
-                <div class="input-box">
                         <span class="details">Gender</span>
                         <select name="gender">
                             <?php
@@ -275,16 +212,87 @@ foreach ($list_of_enums as $genderOptions) {
                         </select>
                     </div>
                     <div class="input-box">
+                        <span class="details">Star Sign</span>
+                        <select name="starsign">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "StarSign");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $StarSign) {
+    echo '<option value=' . $StarSign . '>' . $StarSign . '</option>';
+}
+?>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Religion</span>
+                        <select name="religion">
+                             <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Religion");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $religion) {
+    echo '<option value=' . $religion . '>' . $religion . '</option>';
+}
+?>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">County</span>
+
+                        <select name="county">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Location", "County");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $county) {
+    echo '<option value=' . $county . '>' . $county . '</option>';
+}
+?>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Drinking</span>
+                        <select name="drinker">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Drinking");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $drinkingOptions) {
+    echo '<option value=' . $drinkingOptions . '>' . $drinkingOptions . '</option>';
+}
+?>
+                        </select>
+                    </div>
+                    <div class="input-box">
                         <span class="details">Smoking</span>
                         <select name="smoker">
                             <?php
 include_once "functions.inc.php";
-$list_of_enums = getEnumList("Profile", "Smoker");
+$list_of_enums = getEnumList("Profile", "Smoking");
 echo '<option disabled selected value> -- select an option -- </option>';
-foreach ($list_of_enums as $smokerOptions) {
-    echo '<option value=' . $smokerOptions . '>' . $smokerOptions . '</option>';
+foreach ($list_of_enums as $smokingOptions) {
+    echo '<option value=' . $smokingOptions . '>' . $smokingOptions . '</option>';
 }
 ?>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Childrens</span>
+                        <input type="number" min="0" max="25" name ="childrens" placeholder="How many childrens you have" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Intrests</span>
+                        <select name="intrests">
+                            <option disabled selected value> -- select an option -- </option>;
+                            <option value="Reading">Reading</option>
+                            <option value="Woodworking">Woodworking</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="Video Games">Video Games</option>
+                            <option value="Fishing">Fishing</option>
+                            <option value="Walking">Walking</option>
+                            <option value="Yoga">Yoga</option>
+                            <option value="Traveling">Traveling</option>
                         </select>
                     </div>
                     <div class="input-box">
@@ -301,18 +309,14 @@ foreach ($list_of_enums as $seekingOptions) {
                         </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Drinking</span>
-                        <select name="drinker">
-                            <?php
-include_once "functions.inc.php";
-$list_of_enums = getEnumList("Profile", "Drinker");
-echo '<option disabled selected value> -- select an option -- </option>';
-foreach ($list_of_enums as $drinkingOptions) {
-    echo '<option value=' . $drinkingOptions . '>' . $drinkingOptions . '</option>';
-}
-?>
-                        </select>
+                        <span class="details">Description</span>
+                        <input type="text" name="description" placeholder="description about you" required>
                     </div>
+                    <div class="input-box">
+                        <span class="details">Upload your photo</span>
+                        <input type="file" placeholder="Upload your photo">
+                    </div>
+                </div>
                 <div class="button">
                     <input type="submit" value="Save">
                 </div>
