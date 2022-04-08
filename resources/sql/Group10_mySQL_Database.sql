@@ -97,9 +97,9 @@ CREATE TABLE `Profile` (
     'Hinduism'
   ) NOT NULL,
   `Children` binary(1) NOT NULL COMMENT 'Boolean type representing whether the User has children or not',
-  `Description` blob NOT NULL COMMENT 'Blob type because this will contain a free text description of the person',
+  `Description` text NOT NULL COMMENT 'Text type because this will contain a free text description of the person',
   `Banned` binary(1) NOT NULL COMMENT 'Has the User been banned by an admin?',
-  `Photo` varchar(26) NOT NULL COMMENT 'We should allow Users to upload photos to the site; this field contains the link to the photo they have uploaded',
+  `Photo` blob NOT NULL COMMENT 'Mysql preferred way of saving images on DB',
   `LocationID` int(11) NOT NULL COMMENT 'The Location ID of the town the User is in'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
