@@ -78,15 +78,15 @@ CREATE TABLE `Profile` (
     'Aquarius',
     'Pisces'
   ) NOT NULL,
-  `Smoker` binary(1) NOT NULL COMMENT 'Binary type because this is yes or no',
-  `Drinker` enum(
+  `Smoking` binary(1) NOT NULL COMMENT 'Binary type because this is yes or no',
+  `Drinking` enum(
     'Constantly',
     'Most days',
     'Social Drinker',
     'No'
   ) NOT NULL COMMENT 'Enumerated type because there are several answers, but the available answers won''t change',
-  `Gender` enum('Female', 'Male', 'Other') NOT NULL COMMENT 'See Drinker comment',
-  `Seeking` enum('Female', 'Male', 'Other') NOT NULL COMMENT 'See Drinker comment',
+  `Gender` enum('Female', 'Male', 'Other') NOT NULL COMMENT 'See Drinking comment',
+  `Seeking` enum('Female', 'Male', 'Other') NOT NULL COMMENT 'See Drinking comment',
   `Religion` enum(
     'Athiest',
     'Christian',

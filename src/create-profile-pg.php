@@ -223,7 +223,7 @@ foreach ($list_of_enums as $religion) {
                         </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Location</span>
+                        <span class="details">County</span>
 
                         <select name="county">
                             <?php
@@ -275,7 +275,7 @@ foreach ($list_of_enums as $genderOptions) {
                         </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Smoker</span>
+                        <span class="details">Smoking</span>
                         <select name="smoker">
                             <?php
 include_once "functions.inc.php";
@@ -301,7 +301,7 @@ foreach ($list_of_enums as $seekingOptions) {
                         </select>
                     </div>
                     <div class="input-box">
-                        <span class="details">Drinker</span>
+                        <span class="details">Drinking</span>
                         <select name="drinker">
                             <?php
 include_once "functions.inc.php";
