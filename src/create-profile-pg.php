@@ -258,47 +258,47 @@ foreach ($list_of_enums as $county) {
                     </div>
                 </div>
                 <div class="gender-details">
-                    <input type="radio" name="gender" id="dot-1">
-                    <input type="radio" name="gender" id="dot-2">
+                    <input type="radio" name="gender" value="Male" id="dot-1">
+                    <input type="radio" name="gender" value="Female" id="dot-2">
                     <span class="gender-title">Gender</span>
                     <div class="category">
                         <label for="dot-1">
                             <span class="dot one"></span>
-                            <span class="gender">Male</span>
+                            <span for="gender">Male</span>
                         </label>
                         <label for="dot-2">
                             <span class="dot two"></span>
-                            <span class="gender">Female</span>
+                            <span for="gender">Female</span>
                         </label>
                     </div>
                 </div>
                 <div class="smoker-details">
-                    <input type="radio" name="smoker" id="dot-3">
-                    <input type="radio" name="smoker" id="dot-4">
+                    <input type="radio" name="smoker" value="Yes" id="dot-3">
+                    <input type="radio" name="smoker" value="No" id="dot-4">
                     <span class="smoker-title">Smoker</span>
                     <div class="category">
                         <label for="dot-3">
                             <span class="dot three"></span>
-                            <span class="smoker">Yes</span>
+                            <span for="smoker">Yes</span>
                         </label>
                         <label for="dot-4">
                             <span class="dot four"></span>
-                            <span class="smoker">No</span>
+                            <span for="smoker">No</span>
                         </label>
                     </div>
                 </div>
                 <div class="seeking-details">
-                    <input type="radio" name="seeking" id="dot-5">
-                    <input type="radio" name="seeking" id="dot-6">
+                    <input type="radio" name="seeking" value="Male" id="dot-5">
+                    <input type="radio" name="seeking" value="Female" id="dot-6">
                     <span class="seeking-title">Seeking</span>
                     <div class="category">
                         <label for="dot-5">
                             <span class="dot five"></span>
-                            <span class="seeking">Male</span>
+                            <span for="seeking">Male</span>
                         </label>
                         <label for="dot-6">
                             <span class="dot six"></span>
-                            <span class="seeking">Female</span>
+                            <span for="seeking">Female</span>
                         </label>
                     </div>
                 </div>
