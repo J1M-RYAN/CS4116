@@ -257,51 +257,45 @@ foreach ($list_of_enums as $county) {
                         <input type="file" placeholder="Upload your photo">
                     </div>
                 </div>
-                <div class="gender-details">
-                    <input type="radio" name="gender" value="Male" id="dot-1">
-                    <input type="radio" name="gender" value="Female" id="dot-2">
-                    <span class="gender-title">Gender</span>
-                    <div class="category">
-                        <label for="dot-1">
-                            <span class="dot one"></span>
-                            <span for="gender">Male</span>
-                        </label>
-                        <label for="dot-2">
-                            <span class="dot two"></span>
-                            <span for="gender">Female</span>
-                        </label>
+                <div class="input-box">
+                        <span class="details">Gender</span>
+                        <select name="gender">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Gender");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $genderOptions) {
+    echo '<option value=' . $genderOptions . '>' . $genderOptions . '</option>';
+}
+?>
+                        </select>
                     </div>
-                </div>
-                <div class="smoker-details">
-                    <input type="radio" name="smoker" value="Yes" id="dot-3">
-                    <input type="radio" name="smoker" value="No" id="dot-4">
-                    <span class="smoker-title">Smoker</span>
-                    <div class="category">
-                        <label for="dot-3">
-                            <span class="dot three"></span>
-                            <span for="smoker">Yes</span>
-                        </label>
-                        <label for="dot-4">
-                            <span class="dot four"></span>
-                            <span for="smoker">No</span>
-                        </label>
+                    <div class="input-box">
+                        <span class="details">Smoker</span>
+                        <select name="smoker">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Smoker");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $smokerOptions) {
+    echo '<option value=' . $smokerOptions . '>' . $smokerOptions . '</option>';
+}
+?>
+                        </select>
                     </div>
-                </div>
-                <div class="seeking-details">
-                    <input type="radio" name="seeking" value="Male" id="dot-5">
-                    <input type="radio" name="seeking" value="Female" id="dot-6">
-                    <span class="seeking-title">Seeking</span>
-                    <div class="category">
-                        <label for="dot-5">
-                            <span class="dot five"></span>
-                            <span for="seeking">Male</span>
-                        </label>
-                        <label for="dot-6">
-                            <span class="dot six"></span>
-                            <span for="seeking">Female</span>
-                        </label>
+                    <div class="input-box">
+                        <span class="details">Seeking</span>
+                        <select name="seeking">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Seeking");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $seekingOptions) {
+    echo '<option value=' . $seekingOptions . '>' . $seekingOptions . '</option>';
+}
+?>
+                        </select>
                     </div>
-                </div>
 
                 <div class="button">
                     <input type="submit" value="Save">
