@@ -256,6 +256,10 @@ foreach ($list_of_enums as $county) {
                         <span class="details">Upload your photo</span>
                         <input type="file" placeholder="Upload your photo">
                     </div>
+                    <div class="input-box">
+                        <span class="details">Childrens</span>
+                        <input type="number" min="0" max="25" name ="childrens" placeholder="How many childrens you have" required>
+                    </div>
                 </div>
                 <div class="input-box">
                         <span class="details">Gender</span>
@@ -296,7 +300,19 @@ foreach ($list_of_enums as $seekingOptions) {
 ?>
                         </select>
                     </div>
-
+                    <div class="input-box">
+                        <span class="details">Drinker</span>
+                        <select name="drinker">
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Drinker");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $drinkingOptions) {
+    echo '<option value=' . $drinkingOptions . '>' . $drinkingOptions . '</option>';
+}
+?>
+                        </select>
+                    </div>
                 <div class="button">
                     <input type="submit" value="Save">
                 </div>
