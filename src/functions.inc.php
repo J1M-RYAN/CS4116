@@ -176,7 +176,7 @@ function profileExists($conn, $userid)
 function invalidAge($age)
 {
     $result = false;
-    if ($age > 17 || $age < 201) {
+    if ($age < 17 || $age > 201) {
         $result = true;
     }
     return $result;
@@ -184,13 +184,36 @@ function invalidAge($age)
 
 //INVALID HEIGHT
 
-function invalidHeight($height)
+function validHeight($height)
 {
     $result = false;
-    if (!preg_match("/^[1-9]{1}-[0-11]{1,2}$/", $height)) {
+    if (!preg_match("/^[0-9]{2,3}$/", $height)) {
         $result = true;
     }
     return $result;
+}
+
+function createProfile($conn, $userId, $age, $height, $starsign, $smoking, $drinking, $gender, $seeking, $religion, $childrens, $description, $banned, $photo ,$locationID)
+{
+    $sql = "INSERT INTO Profile (UserID	, Age, Height, StarSign, Smoking, Drinking, Gender, Seeking, Religion,
+                                Children, Description, Banned, Photo, LocationID) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: signup.php?error=stmtfailed");
+        exit();
+    }
+    //echo $gender;
+    mysqli_stmt_bind_param($stmt, "iiisissssisisi", $userId, $age, $height, $starsign, $smoking, $drinking, $gender, $seeking, $religion, $childrens, $description, $banned, $photo ,$locationID);
+    
+    // mysqli_stmt_execute($stmt);
+    //echo $stmt->fullQuery;
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: index.php");
+    exit();
 }
 
 function getEnumList($table, $column)

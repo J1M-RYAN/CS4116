@@ -191,7 +191,7 @@
     <div class="container crt-profile">
         <div class="title">Create Profile</div>
         <div class="content-cp">
-            <form action="#">
+            <form action="create-profile-pg.inc.php" method="post">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Age</span>
@@ -258,7 +258,7 @@ foreach ($list_of_enums as $county) {
                     </div>
                     <div class="input-box">
                         <span class="details">Drinking</span>
-                        <select name="drinker">
+                        <select name="drinking">
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Drinking");
@@ -271,7 +271,7 @@ foreach ($list_of_enums as $drinkingOptions) {
                     </div>
                     <div class="input-box">
                         <span class="details">Smoking</span>
-                        <select name="smoker">
+                        <select name="smoking">
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Smoking");
@@ -287,15 +287,15 @@ foreach ($list_of_enums as $smokingOptions) {
                         <input type="number" min="0" max="25" name ="childrens" placeholder="How many childrens you have" required>
                     </div>
                     <div class="input-box">
-                        <span class="details">Intrests</span>
-                        <select name="intrests">
+                        <span class="details">Interests</span>
+                        <select name="interests">
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("AvailableInterests", "InterestName");
 echo '<option disabled selected value> -- select an option -- </option>';
 $valueCount = 1;
-foreach ($list_of_enums as $intrestName) {
-    echo '<option value=' . $valueCount . '>' . $intrestName . '</option>';
+foreach ($list_of_enums as $interestName) {
+    echo '<option value=' . $valueCount . '>' . $interestName . '</option>';
     $valueCount = $valueCount + 1;
 }
 ?>
@@ -320,11 +320,11 @@ foreach ($list_of_enums as $seekingOptions) {
                     </div>
                     <div class="input-box">
                         <span class="details">Upload your photo</span>
-                        <input type="file" placeholder="Upload your photo">
+                        <input type="file" name="photo" placeholder="Upload your photo">
                     </div>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Save">
+                    <input type="submit" name="submit" value="Save">
                 </div>
             </form>
         </div>

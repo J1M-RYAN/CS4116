@@ -1,4 +1,5 @@
-<?php 
+<?php
+    session_start();
     include "init.php";
     //Importing php files to access functions from those files
     require_once 'functions.inc.php';
@@ -7,39 +8,50 @@
         $temp = new Database();
         $conn = $temp->instance();
        
+        $userId = $_SESSION["userid"];
         $age = $_POST['age'];
         $height = $_POST['height'];
         $starsign = $_POST['starsign'];
         $religion = $_POST['religion'];
-        $loaction = $_POST['loaction'];
-        $intrests = $_POST['intrests'];
+        $locationID = $_POST['county'];
+        $interests = $_POST['interests'];
         $description = $_POST['description'];
         $gender = $_POST['gender'];
-        $smoker = $_POST['smoker'];
+        //$smoking = $_POST['smoking'];
         $seeking = $_POST['seeking'];
+        $drinking = $_POST['drinking'];
+        $childrens = $_POST['childrens'];
+        $banned = 0;
+        $photo = $_POST['photo'];
+        
+        $smoking = '2';
+
 
         //Error handling - data input correctly
        
         //EMPTY INPUT FIELD  
 
-        if(emptyInputSignup($age, $height, $starsign, $religion, $loaction, $intrests ,$description, $gender, $smoker ,$seeking) !== false){
+        if(emptyInputSignup($age, $height, $starsign, $religion, $locationID, $interests ,$description, $gender, $smoking ,$seeking) !== false){
             header("location: create-profile-pg.php?error=emptyinput"); 
             exit();
         }
 
         //INVALID AGE
 
-        if(invalidAge($firstName) !== false){
+        if(invalidAge($age) !== false){
             header("location: create-profile-pg.php?error=invalidage"); 
             exit();
         }
 
         //INVALID SURNAME
 
-        if(invalidHeight($height) !== false){
+        if(validHeight($height) !== false){
             header("location: create-profile-pg.php?error=invalidheight"); 
             exit();
         }
+        
+        createProfile($conn, $userId, $age, $height, $starsign, $smoking, $drinking, $gender, $seeking, $religion, $childrens, $description, $banned, $photo ,$locationID);
+
     } else{
         header("location: create-profile-pg.php");
         exit();
