@@ -291,7 +291,7 @@ foreach ($list_of_enums as $smokingOptions) {
                         <select name="interests">
                             <?php
 include_once "functions.inc.php";
-$list_of_enums = getEnumList("AvailableInterests", "InterestName");
+$list_of_enums = getRowFromTable("AvailableInterests", "InterestName");
 echo '<option disabled selected value> -- select an option -- </option>';
 $valueCount = 1;
 foreach ($list_of_enums as $interestName) {
