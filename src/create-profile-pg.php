@@ -286,15 +286,16 @@ foreach ($list_of_enums as $smokingOptions) {
                     <div class="input-box">
                         <span class="details">Intrests</span>
                         <select name="intrests">
-                            <option disabled selected value> -- select an option -- </option>;
-                            <option value="Reading">Reading</option>
-                            <option value="Woodworking">Woodworking</option>
-                            <option value="Gardening">Gardening</option>
-                            <option value="Video Games">Video Games</option>
-                            <option value="Fishing">Fishing</option>
-                            <option value="Walking">Walking</option>
-                            <option value="Yoga">Yoga</option>
-                            <option value="Traveling">Traveling</option>
+                            <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("AvailableInterests", "InterestName");
+echo '<option disabled selected value> -- select an option -- </option>';
+$valueCount = 1;
+foreach ($list_of_enums as $intrestName) {
+    echo '<option value=' . $valueCount . '>' . $intrestName . '</option>';
+    $valueCount = $valueCount + 1;
+}
+?>
                         </select>
                     </div>
                     <div class="input-box">
