@@ -38,6 +38,14 @@ CREATE TABLE `AvailableInterests` (
 
 -- --------------------------------------------------------
 --
+-- Populate `AvailableInterests` Table
+--
+INSERT INTO `AvailableInterests` (`InterestID`, `InterestName`) 
+VALUES ('1', 'Reading'), ('2', 'Woodworking'), ('3', 'Gardening'), ('4', 'Video Games'), 
+       ('5', 'Fishing'), ('6', 'Walking'), ('7', 'Yoga'), ('8', 'Traveling');
+
+-- --------------------------------------------------------
+--
 -- Table structure for table `Connections`
 --
 CREATE TABLE `Connections` (
