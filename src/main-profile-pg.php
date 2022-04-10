@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -173,15 +176,25 @@
             <div class="d-flex row margin-top-2">
                 <div class="col-33">
                     <h5 class="fw-bold">First name: </h5>
-                    <p>Andre</p>
+                    <?php
+include_once "functions.inc.php";
+$userId = $_SESSION["userid"];
+$list_of_profile_details = getProfileDetails($userId);
+$list_of_user_details = getUserDetails($userId);
+echo '<p>' . $list_of_user_details[4] . '</p>';
+?>
                 </div>
                 <div class="col-33">
-                    <h5 class="fw-bold">Last name: </h5>
-                    <p>Andre</p>
+                    <h5 class="fw-bold">Surname: </h5>
+                    <?php
+                        echo '<p>' . $list_of_user_details[5] . '</p>';
+                    ?>
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Email: </h5>
-                    <p>Andre</p>
+                    <?php
+                        echo '<p>' . $list_of_user_details[3] . '</p>';
+                    ?>
                 </div>
             </div>
             <div class="d-flex row margin-top-2">
@@ -191,21 +204,29 @@
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Gender: </h5>
-                    <p>Andre</p>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[6] . '</p>';
+                    ?>
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Age: </h5>
-                    <p>23</p>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[1] . '</p>';
+                    ?>
                 </div>
             </div>
             <div class="d-flex row margin-top-2">
                 <div class="col-66">
                     <h5 class="fw-bold">Short Bio: </h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore itaque eligendi et!</p>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[10] . '</p>';
+                    ?>
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Height: </h5>
-                    <p>175cm</p>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[2] . '</p>';
+                    ?>
                 </div>
             </div>
             <div class="d-flex row margin-top-2">
@@ -215,11 +236,15 @@
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Drinking: </h5>
-                    <p>No</p>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[5] . '</p>';
+                    ?>
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Smoking: </h5>
-                    <p>No</p>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[4] . '</p>';
+                    ?>
                 </div>
             </div>
             <div class="d-flex row">
