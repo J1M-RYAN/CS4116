@@ -257,7 +257,8 @@ echo '<p>' . $list_of_user_details[4] . '</p>';
                 <div class="col-33">
                     <h5 class="fw-bold">County: </h5>
                     <?php
-                        echo '<p>' . $list_of_profile_details[13] . '</p>';
+                        $county = getCountyFromLocationID($list_of_profile_details[13]);
+                        echo '<p>' . $county[0] . '</p>';
                     ?>
                 </div>
                 <div class="col-33">

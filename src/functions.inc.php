@@ -282,6 +282,28 @@ function getUserDetails($userID)
     return $storedRowValues;
 }
 
+function getCountyFromLocationID($locationID)
+{
+    $db = Database::instance();
+    $sql = "SELECT County FROM Location WHERE LocationID = $locationID;";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: signup.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $storedRowValues=array();
+    while ($row = $result->fetch_assoc()) {
+        foreach ($row as $item) {
+            array_push($storedRowValues,$item);
+        }
+    }
+    return $storedRowValues;
+}
+
 function getEnumList($table, $column)
 {
     $db = Database::instance();
