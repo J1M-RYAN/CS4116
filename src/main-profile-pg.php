@@ -199,8 +199,10 @@ echo '<p>' . $list_of_user_details[4] . '</p>';
             </div>
             <div class="d-flex row margin-top-2">
                 <div class="col-33">
-                    <h5 class="fw-bold">Phone: </h5>
-                    <p>Andre</p>
+                    <h5 class="fw-bold">Religion: </h5>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[8] . '</p>';
+                    ?>
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Gender: </h5>
@@ -212,6 +214,18 @@ echo '<p>' . $list_of_user_details[4] . '</p>';
                     <h5 class="fw-bold">Age: </h5>
                     <?php
                         echo '<p>' . $list_of_profile_details[1] . '</p>';
+                    ?>
+                </div>
+                <div class="col-33">
+                    <h5 class="fw-bold">Childrens: </h5>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[9] . '</p>';
+                    ?>
+                </div>
+                <div class="col-33">
+                    <h5 class="fw-bold">Seeking: </h5>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[7] . '</p>';
                     ?>
                 </div>
             </div>
@@ -233,6 +247,18 @@ echo '<p>' . $list_of_user_details[4] . '</p>';
                 <div class="col-33">
                     <h5 class="fw-bold">Hobbies: </h5>
                     <p>Hobby 1, Hobby 2</p>
+                </div>
+                <div class="col-33">
+                    <h5 class="fw-bold">StarSign: </h5>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[3] . '</p>';
+                    ?>
+                </div>
+                <div class="col-33">
+                    <h5 class="fw-bold">County: </h5>
+                    <?php
+                        echo '<p>' . $list_of_profile_details[13] . '</p>';
+                    ?>
                 </div>
                 <div class="col-33">
                     <h5 class="fw-bold">Drinking: </h5>
