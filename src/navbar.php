@@ -27,7 +27,7 @@
                         <?php 
                             if(isset($_SESSION["userEmail"])){
                                 echo "<li class='nav-item'><a class='nav-link mx-2' href='/discover'>Discover</a></li>";
-                                echo "<li class='nav-item'><a class='nav-link mx-2' href='/profile'>Profile</a></li>";
+                                echo "<li class='nav-item'><a class='nav-link mx-2' href='/main-profile-pg'>Profile</a></li>";
                                 echo "<li class='nav-item'>
                                 <a href='/logout.inc.php'>
                                 <button class='btn btn-red rounded-0 py-2 mx-2'><i class='fa fa-user'></i> LOG
