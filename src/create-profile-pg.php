@@ -195,7 +195,7 @@
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Age</span>
-                        <input type="number" min="18" max="200" name ="age" placeholder="Enter your age" required>
+                        <input type="number" min="18" max="100" name ="age" placeholder="Enter your age" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Height</span>
@@ -203,7 +203,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Gender</span>
-                        <select name="gender">
+                        <select name="gender" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Gender");
@@ -216,7 +216,7 @@ foreach ($list_of_enums as $genderOptions) {
                     </div>
                     <div class="input-box">
                         <span class="details">Star Sign</span>
-                        <select name="starsign">
+                        <select name="starsign" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "StarSign");
@@ -229,7 +229,7 @@ foreach ($list_of_enums as $StarSign) {
                     </div>
                     <div class="input-box">
                         <span class="details">Religion</span>
-                        <select name="religion">
+                        <select name="religion" required>
                              <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Religion");
@@ -243,7 +243,7 @@ foreach ($list_of_enums as $religion) {
                     <div class="input-box">
                         <span class="details">County</span>
 
-                        <select name="county">
+                        <select name="county" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Location", "County");
@@ -258,7 +258,7 @@ foreach ($list_of_enums as $county) {
                     </div>
                     <div class="input-box">
                         <span class="details">Drinking</span>
-                        <select name="drinking">
+                        <select name="drinking" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Drinking");
@@ -271,7 +271,7 @@ foreach ($list_of_enums as $drinkingOptions) {
                     </div>
                     <div class="input-box">
                         <span class="details">Smoking</span>
-                        <select name="smoking">
+                        <select name="smoking" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Smoking");
@@ -288,7 +288,7 @@ foreach ($list_of_enums as $smokingOptions) {
                     </div>
                     <div class="input-box">
                         <span class="details">Interests</span>
-                        <select name="interests">
+                        <select name="interests" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getRowFromTable("AvailableInterests", "InterestName");
@@ -303,7 +303,7 @@ foreach ($list_of_enums as $interestName) {
                     </div>
                     <div class="input-box">
                         <span class="details">Seeking</span>
-                        <select name="seeking">
+                        <select name="seeking" required>
                             <?php
 include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Seeking");
@@ -326,6 +326,17 @@ foreach ($list_of_enums as $seekingOptions) {
                 <div class="button">
                     <input type="submit" name="submit" value="Save">
                 </div>
+                <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "emptyinput") {
+                            echo "<p>Fill in all fields!<p>";
+                        } else if ($_GET["error"] == "invalidage") {
+                            echo "<p>Choose a proper age!<p>";
+                        } else if ($_GET["error"] == "invalidheight") {
+                            echo "<p>Choose a proper height!<p>";
+                        } 
+                    }
+                ?>
             </form>
         </div>
     </div>

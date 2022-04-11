@@ -192,7 +192,7 @@ function profileExists($conn, $userid)
 function invalidAge($age)
 {
     $result = false;
-    if ($age < 17 || $age > 201) {
+    if ($age < 17 || $age >= 100) {
         $result = true;
     }
     return $result;

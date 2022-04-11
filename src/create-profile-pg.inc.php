@@ -43,7 +43,7 @@
             exit();
         }
 
-        //VALID HEIGHT
+        //INVALID HEIGHT
 
         if(validHeight($height) !== false){
             header("location: create-profile-pg.php?error=invalidheight"); 
