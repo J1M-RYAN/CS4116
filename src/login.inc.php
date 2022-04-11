@@ -16,7 +16,7 @@ require_once 'functions.inc.php';
         }
 
         loginUser($conn, $email, $pwd);
-
+        updateUserLastLogintime($_SESSION["userid"]);
     } else{
         header("location: login.php"); // Redirects user if they did not submit the form to run this php script 
         exit();

@@ -144,6 +144,22 @@ function loginUser($conn, $email, $pwd)
     }
 
 }
+
+function updateUserLastLogintime($userID)
+{
+    $db = Database::instance();
+    $sql = "UPDATE User SET LastLoginTime = CURRENT_TIMESTAMP()
+            WHERE UserID = '$userID';";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: signup.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+}
+
 function profileExists($conn, $userid)
 {
 
