@@ -314,7 +314,7 @@ function getTotalUsersOnlineInLastHour()
 function getNumberOfUsersOnlineInLastHour($gender)
 {
     $db = Database::instance();
-    $sql = "SELECT * FROM Profile
+    $sql = "SELECT COUNT(*) FROM Profile
             INNER JOIN User ON User.UserID = Profile.UserID
             WHERE Gender = '$gender' AND LastLoginTime >= NOW() - INTERVAL 1 HOUR;";
 
