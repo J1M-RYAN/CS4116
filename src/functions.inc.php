@@ -182,7 +182,7 @@ function invalidAge($age)
     return $result;
 }
 
-//INVALID HEIGHT
+//VALID HEIGHT
 
 function validHeight($height)
 {
@@ -258,6 +258,58 @@ function getProfileDetails($userID)
         }
     }
     return $storedRowValues;
+}
+
+function getTotalUsersRegistered()
+{
+    $db = Database::instance();
+    $sql = "SELECT COUNT(*) FROM User;";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: signup.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_array($result);
+    return $row[0];
+}
+
+function getTotalUsersOnline()
+{
+    $db = Database::instance();
+    $sql = "SELECT COUNT(*) FROM User
+            WHERE LastLoginTime >= NOW() - INTERVAL 1 HOUR";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: signup.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_array($result);
+    return $row[0];
+}
+
+function getNumberOfUsersOnline($gender)
+{
+    $db = Database::instance();
+    $sql = "SELECT COUNT(*) FROM Profile WHERE Gender = '$gender';";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: signup.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_array($result);
+    return $row[0];
 }
 
 function getUserDetails($userID)

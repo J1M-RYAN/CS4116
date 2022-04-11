@@ -7,6 +7,7 @@
 <head>
     <?php
 include_once "init.php";
+include_once "functions.inc.php";
 ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,7 +94,9 @@ include_once "init.php";
                         <div class="d-flex justify-content-center mt-4">
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
-                        <p class="text-center h1 fw-bold text-white mt-4">29,991</p>
+                        <p class="text-center h1 fw-bold text-white mt-4"><?php
+echo getTotalUsersRegistered();
+?></p>
                         <p class="text-center h6 text-white fw-bold">Members in Total</p>
                     </div>
                 </div>
@@ -105,8 +108,10 @@ include_once "init.php";
                         <div class="d-flex justify-content-center mt-4">
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
-                        <p class="text-center h1 fw-bold text-white mt-4">29,991</p>
-                        <p class="text-center h6 text-white fw-bold">Members Online</p>
+                        <p class="text-center h1 fw-bold text-white mt-4"><?php
+echo getTotalUsersOnline();
+?></p>
+                        <p class="text-center h6 text-white fw-bold">Total Members Online</p>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -118,8 +123,8 @@ include_once "init.php";
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
                         <p class="text-center h1 fw-bold text-white mt-4"><?php
-$temp = new User();
-echo $temp->getNumberMales();
+$gender = 'Male';
+echo getNumberOfUsersOnline($gender);
 ?></p>
                         <p class="text-center h6 text-white fw-bold">Men Online</p>
                     </div>
@@ -133,8 +138,8 @@ echo $temp->getNumberMales();
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
                         <p class="text-center h1 fw-bold text-white mt-4"><?php
-$temp = new User();
-echo $temp->getNumberFemales();
+$gender = 'Female';
+echo getNumberOfUsersOnline($gender);
 ?></p>
                         <p class="text-center h6 text-white fw-bold">Women Online</p>
                     </div>
