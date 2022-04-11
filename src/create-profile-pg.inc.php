@@ -43,7 +43,7 @@
             exit();
         }
 
-        //INVALID SURNAME
+        //VALID HEIGHT
 
         if(validHeight($height) !== false){
             header("location: create-profile-pg.php?error=invalidheight"); 

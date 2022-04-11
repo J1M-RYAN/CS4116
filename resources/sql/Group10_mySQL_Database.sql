@@ -86,9 +86,8 @@ CREATE TABLE `Profile` (
     'Aquarius',
     'Pisces'
   ) NOT NULL,
-  `Smoking` binary(1) NOT NULL COMMENT 'Binary type because this is yes or no',
+  `Smoking` enum('Often', 'Sometimes', 'No') NOT NULL COMMENT 'See Drinking comment',
   `Drinking` enum(
-    'Constantly',
     'Most days',
     'Social Drinker',
     'No'
