@@ -293,7 +293,7 @@ function getTotalUsersRegistered()
     return $row[0];
 }
 
-function getTotalUsersOnline()
+function getTotalUsersOnlineInLastHour()
 {
     $db = Database::instance();
     $sql = "SELECT COUNT(*) FROM User
@@ -311,10 +311,12 @@ function getTotalUsersOnline()
     return $row[0];
 }
 
-function getNumberOfUsersOnline($gender)
+function getNumberOfUsersOnlineInLastHour($gender)
 {
     $db = Database::instance();
-    $sql = "SELECT COUNT(*) FROM Profile WHERE Gender = '$gender';";
+    $sql = "SELECT * FROM Profile
+            INNER JOIN User ON User.UserID = Profile.UserID
+            WHERE Gender = '$gender' AND LastLoginTime >= NOW() - INTERVAL 1 HOUR;";
 
     $stmt = mysqli_stmt_init($db);
 

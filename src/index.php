@@ -95,7 +95,7 @@ include_once "functions.inc.php";
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
                         <p class="text-center h1 fw-bold text-white mt-4"><?php
-echo getTotalUsersRegistered();
+echo getTotalUsersOnlineInLastHour();
 ?></p>
                         <p class="text-center h6 text-white fw-bold">Members in Total</p>
                     </div>
@@ -109,7 +109,7 @@ echo getTotalUsersRegistered();
                             <div class="w-50 py-1 bg-danger"></div>
                         </div>
                         <p class="text-center h1 fw-bold text-white mt-4"><?php
-echo getTotalUsersOnline();
+echo getTotalUsersOnlineInLastHour();
 ?></p>
                         <p class="text-center h6 text-white fw-bold">Total Members Online</p>
                     </div>
@@ -124,7 +124,7 @@ echo getTotalUsersOnline();
                         </div>
                         <p class="text-center h1 fw-bold text-white mt-4"><?php
 $gender = 'Male';
-echo getNumberOfUsersOnline($gender);
+echo getNumberOfUsersOnlineInLastHour($gender);
 ?></p>
                         <p class="text-center h6 text-white fw-bold">Men Online</p>
                     </div>
@@ -139,7 +139,7 @@ echo getNumberOfUsersOnline($gender);
                         </div>
                         <p class="text-center h1 fw-bold text-white mt-4"><?php
 $gender = 'Female';
-echo getNumberOfUsersOnline($gender);
+echo getNumberOfUsersOnlineInLastHour($gender);
 ?></p>
                         <p class="text-center h6 text-white fw-bold">Women Online</p>
                     </div>
