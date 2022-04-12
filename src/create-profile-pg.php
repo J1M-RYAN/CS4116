@@ -264,7 +264,7 @@ include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Drinking");
 echo '<option disabled selected value> -- select an option -- </option>';
 foreach ($list_of_enums as $drinkingOptions) {
-    echo '<option value=' . $drinkingOptions . '>' . $drinkingOptions . '</option>';
+    echo '<option value="' . $drinkingOptions . '">' . $drinkingOptions . '</option>';
 }
 ?>
                         </select>
@@ -277,7 +277,7 @@ include_once "functions.inc.php";
 $list_of_enums = getEnumList("Profile", "Smoking");
 echo '<option disabled selected value> -- select an option -- </option>';
 foreach ($list_of_enums as $smokingOptions) {
-    echo '<option value=' . $smokingOptions . '>' . $smokingOptions . '</option>';
+    echo '<option value="' . $smokingOptions . '">' . $smokingOptions . '</option>';
 }
 ?>
                         </select>

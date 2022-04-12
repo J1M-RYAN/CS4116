@@ -17,15 +17,12 @@
         $interests = $_POST['interests'];
         $description = $_POST['description'];
         $gender = $_POST['gender'];
-        //$smoking = $_POST['smoking'];
+        $smoking = $_POST['smoking'];
         $seeking = $_POST['seeking'];
         $drinking = $_POST['drinking'];
         $childrens = $_POST['childrens'];
         $banned = 0;
         $photo = $_POST['photo'];
-        
-        $smoking = '2';
-
 
         //Error handling - data input correctly
        

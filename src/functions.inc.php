@@ -221,12 +221,16 @@ function createProfile($conn, $userId, $age, $height, $starsign, $smoking, $drin
         header("location: signup.php?error=stmtfailed");
         exit();
     }
-    //echo $gender;
-    mysqli_stmt_bind_param($stmt, "iiisissssisisi", $userId, $age, $height, $starsign, $smoking, $drinking, $gender, $seeking, $religion, $childrens, $description, $banned, $photo ,$locationID);
+    mysqli_stmt_bind_param($stmt, "iiissssssisisi", $userId, $age, $height, $starsign, $smoking, $drinking, $gender, $seeking, $religion, $childrens, $description, $banned, $photo ,$locationID);
     
     // mysqli_stmt_execute($stmt);
     //echo $stmt->fullQuery;
     mysqli_stmt_execute($stmt);
+    //below code is for trouble shooting
+    //$result = mysqli_stmt_get_result($stmt);
+    //if (!$result) {
+    //    die(mysqli_error($conn));
+    //}
     mysqli_stmt_close($stmt);
     header("location: index.php");
     exit();
