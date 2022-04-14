@@ -16,7 +16,7 @@
   <!-- Google Fonts (Mulish) -->
   <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
 
-  <!-- Main Css File -->
+  <!-- Main Css File for header and footer component -->
   <link rel="stylesheet" href="./assets/css/main.css">
 
   <!-- Bootstrap icons -->
