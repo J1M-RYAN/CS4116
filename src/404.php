@@ -37,7 +37,7 @@
             justify-content: center;
             align-items: center;
             padding: 10px;
-            background-image: url(bg-pg.png);
+            background-image: url(src/assets/images/bg-pg.png);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -89,7 +89,7 @@
                 <div class="col-sm-12">
                     <div class="col-sm-10 col-sm-offset-1 text-center">
                         <div class="four_z_4_bg">
-                            <img src="./bgg.png" alt="404-image" class="responsive">
+                            <img src="src/assets/images/bgg.png" alt="404-image" class="responsive">
                             <h3 class="h2">The page you are looking for is not available</h3>
                         </div>
                         <div class="but">
