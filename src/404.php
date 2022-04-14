@@ -100,6 +100,8 @@
             </div>
         </div>
     </section>
+    <!-- Footer  -->
+  <?php require './footer.php'?>
 </body>
 
 </html>
