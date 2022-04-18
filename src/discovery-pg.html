@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 5.0 Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+   <!-- Google Fonts (Mulish) -->
+  <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+    <!-- Main Css File for header and footer component -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+
+  <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --main: #e22c38;
+            --main-light: #e22c382a;
+            --radius: 12px;
+        }
+
+        body {
+            
+            background-image: url(assets/images/bg-pg.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .text-main {
+            color: var(--main) !important;
+        }
+
+        .bg-main {
+            background-color: var(--main) !important;
+        }
+
+        .btn,
+        input:not(.form-check-input),
+        select {
+            height: 48px !important;
+            border-radius: var(--radius) !important;
+        }
+
+        .input:focus,
+        textarea:focus {
+            box-shadow: 0px 0px 0px 0px !important;
+        }
+        .fltr-btn {
+            padding: 10px 30px 20px 30px;
+            background: #dd314e;
+        }
+
+        .fltr-btn:hover {
+            background: #391866;
+        }
+
+        .radius {
+            border-radius: var(--radius);
+        }
+
+        #navbar {
+            transition: .5s;
+        }
+
+        .avatar {
+            height: 100px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .d-mobile-block {
+                display: block !important;
+            }
+        }
+
+        /*--- profile card---*/
+        .profile-usertitle {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-usertitle-name {
+            color: #5a7391;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .profile-usertitle-age {
+            text-transform: uppercase;
+            color: #5b9bd1;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .profile-userbuttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-userbuttons .btn {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 15px;
+            margin-right: 5px;
+        }
+
+        .profile-userbuttons .btn:last-child {
+            margin-right: 0px;
+        }
+
+        .box-card {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+    </style>
+
+    <title>Starter</title>
+</head>
+
+<body>
+    <div class="discovery-pg">
+
+    <!-- Filter Form -->
+    <div class="container-fluid my-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card radius">
+                        <div class="card-header text-center h1 fw-bolder">DISCOVER</div>
+                        <div class="card-body">
+                            <div class="d-flex d-mobile-block my-4">
+                                <div class="col px-3">
+                                    <label for="location">Location</label>
+                                    <select id="location" class="form-control" name="location" placeholder="Location">
+                                        <option value="Location 1">Location 1</option>
+                                        <option value="Location 2">Location 2</option>
+                                        <option value="Location 3">Location 3</option>
+                                        <option value="Location 4">Location 4</option>
+                                        <option value="Location 5">Location 5</option>
+                                        <option value="Location 6">Location 6</option>
+                                        <option value="Location 7">Location 7</option>
+                                    </select>
+                                </div>
+                                <div class="col px-3">
+                                    <label for="religion">Religion</label>
+                                    <select id="religion" class="form-control" name="religion" placeholder="Religion">
+                                        <option value="Religion 1">Religion 1</option>
+                                        <option value="Religion 2">Religion 2</option>
+                                        <option value="Religion 3">Religion 3</option>
+                                        <option value="Religion 4">Religion 4</option>
+                                        <option value="Religion 5">Religion 5</option>
+                                        <option value="Religion 6">Religion 6</option>
+                                        <option value="Religion 7">Religion 7</option>
+                                    </select>
+                                </div>
+                                <div class="col px-3">
+                                    <label for="star_sign">Star Sign</label>
+                                    <select id="star_sign" class="form-control" name="star_sign"
+                                        placeholder="Star Sign">
+                                        <option value="Star Sign 1">Star Sign 1</option>
+                                        <option value="Star Sign 2">Star Sign 2</option>
+                                        <option value="Star Sign 3">Star Sign 3</option>
+                                        <option value="Star Sign 4">Star Sign 4</option>
+                                        <option value="Star Sign 5">Star Sign 5</option>
+                                        <option value="Star Sign 6">Star Sign 6</option>
+                                        <option value="Star Sign 7">Star Sign 7</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex d-mobile-block my-4">
+                                <div class="col px-3">
+                                    <label for="interest">Interest</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 1"
+                                            id="flexCheckChecked1">
+                                        <label class="form-check-label" for="flexCheckChecked1">
+                                            Option 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 2"
+                                            id="flexCheckChecked2">
+                                        <label class="form-check-label" for="flexCheckChecked2">
+                                            Option 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 3"
+                                            id="flexCheckChecked3">
+                                        <label class="form-check-label" for="flexCheckChecked3">
+                                            Option 3
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 4"
+                                            id="flexCheckChecked4">
+                                        <label class="form-check-label" for="flexCheckChecked4">
+                                            Option 4
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 5"
+                                            id="flexCheckChecked5">
+                                        <label class="form-check-label" for="flexCheckChecked5">
+                                            Option 5
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 6"
+                                            id="flexCheckChecked6">
+                                        <label class="form-check-label" for="flexCheckChecked6">
+                                            Option 6
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col px-3">
+                                    <label>Filtering Age</label>
+                                    <div>
+                                        <label for="min_age">Min Age</label>
+                                        <input value="18"
+                                            onchange="document.querySelector('#min_age_output').textContent = this.value"
+                                            type="range" id="min_age" class="form-control form-range" min="18" max="60"
+                                            placeholder="Minimum age">
+                                        <span id="min_age_output">18</span>
+                                    </div>
+                                    <div>
+                                        <label for="max_age">Max Age</label>
+                                        <input value="50"
+                                            onchange="document.querySelector('#max_age_output').textContent = this.value"
+                                            type="range" id="max_age" class="form-control form-range" min="18" max="60"
+                                            placeholder="Maximum age">
+                                        <span id="max_age_output">50</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex d-mobile-block my-4">
+                                <div class="col px-3">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" class="form-control" name="gender" placeholder="Gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+
+                                    </select>
+                                </div>
+                                <div class="col px-3">
+                                    <label for="smoker">Smoker</label>
+                                    <select id="smoker" class="form-control" name="smoker" placeholder="Smoker">
+                                        <option value="Smoker 1">Yes</option>
+                                        <option value="Smoker 2">No</option>
+
+                                    </select>
+                                </div>
+                                <div class="col px-3">
+                                    <label for="drinker">Drinker</label>
+                                    <select id="drinker" class="form-control" name="drinker" placeholder="Drinker">
+                                        <option value="Drinker 1">Yes</option>
+                                        <option value="Drinker 2">No</option>
+                                        <option value="Drinker 3">Ocassionaly</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary fltr-btn">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / Filter Form -->
+<!-- Discovery Results -->
+<div class="container-fluid p-3 my-2">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card radius p-4">
+                    <p class="h2">6 results</p>
+                    <div class="row">
+                        <div class="col-md-3 mb-3 prof-card">
+                            <div class="bg-light radius border p-3">
+                                <div class="text-center">
+                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
+                                </div>
+                                
+                                <div class="profile-usertitle">
+                                    <div class="profile-usertitle-name">
+                                        Marcus Doe
+                                    </div>
+                                    <div class="profile-usertitle-age">
+                                        Age
+                                    </div>
+                                    <div class="profile-usertitle-location">
+                                        Location
+                                    </div>
+                                </div>
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm">Like</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3 prof-card">
+                            <div class="bg-light radius border p-3">
+                                <div class="text-center">
+                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
+                                </div>
+                                
+                                <div class="profile-usertitle">
+                                    <div class="profile-usertitle-name">
+                                        Marcus Doe
+                                    </div>
+                                    <div class="profile-usertitle-age">
+                                        Age
+                                    </div>
+                                    <div class="profile-usertitle-location">
+                                        Location
+                                    </div>
+                                </div>
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm">Like</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                </div>
+                            </div>
+                             
+                        </div>
+                        <div class="col-md-3 mb-3 prof-card">
+                            <div class="bg-light radius border p-3">
+                                <div class="text-center">
+                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
+                                </div>
+                                
+                                <div class="profile-usertitle">
+                                    <div class="profile-usertitle-name">
+                                        Marcus Doe
+                                    </div>
+                                    <div class="profile-usertitle-age">
+                                        Age
+                                    </div>
+                                    <div class="profile-usertitle-location">
+                                        Location
+                                    </div>
+                                </div>
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm">Like</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3 prof-card">
+                            <div class="bg-light radius border p-3">
+                                <div class="text-center">
+                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
+                                </div>
+                                
+                                <div class="profile-usertitle">
+                                    <div class="profile-usertitle-name">
+                                        Marcus Doe
+                                    </div>
+                                    <div class="profile-usertitle-age">
+                                        Age
+                                    </div>
+                                    <div class="profile-usertitle-location">
+                                        Location
+                                    </div>
+                                </div>
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm">Like</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- / Results -->
+
+
+    <!-- Bootstrap 5.0 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
