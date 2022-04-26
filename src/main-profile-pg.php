@@ -275,54 +275,65 @@ echo '<p>' . $list_of_user_details[4] . '</p>';
                 </div>
             </div>
             <div class="d-flex row">
-                <div class="col-50 col-sm-100">
-                    <div class="margin-top-2 pr-3">
-                        <h2 class="fw-bold">Matches</h2>
-                        <div class="d-flex gap-1 scroll-x margin-top-2">
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
+            <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+            <?php
+include_once "functions.inc.php";
+$list_of_userIds = getConnectionIds();
+?>
+                <div class="card radius p-4">
+                    <?php $totalUsers = count($list_of_userIds);
+                    echo '<p class="h2">Friend Requests</p>'; ?>
+                    <div class="row">
+                        
+                    <?php
+                    include_once "functions.inc.php";
+                    $list_of_connection_ids=array();
+                    $connectionIdCount = 0;
+                    foreach ($list_of_userIds as $userId) {
+                        $profie_data = getProfileDetails($userId);
+                        $list_of_user_details = getUserDetails($userId);
+                        array_push($list_of_connection_ids, $userId);
+                        echo '<div class="col-md-3 mb-3 prof-card">';
+                        echo '
+                        <form name = "like button" action="discovery-pg.inc.php" method="post">';
+                            echo '<div class="bg-light radius border p-3">';
+                                echo '<div class="text-center">';
+                                    echo '<img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">';
+                                echo '</div>';
+                                echo '<div class="profile-usertitle">';
+                                    echo '<div class="profile-usertitle-name">';
+                                        echo $list_of_user_details[4];
+                                    echo '</div>';
+                                    echo '<div class="profile-usertitle-age">';
+                                        echo $profie_data[1];
+                                    echo '</div>';
+                                    echo '<div class="profile-usertitle-location">';
+                                        $county = getCountyFromLocationID($profie_data[13]);
+                                        echo $county[0];
+                                    echo '</div>';
+                                    echo '<div class="profile-usertitle-name">';
+                                        echo '<input type="hidden" name="connectionId" value=' . $list_of_connection_ids[$connectionIdCount] . '/>';
+                                    echo '</div>';
+                                echo '</div>';
+                                echo '<div class="profile-userbuttons">';
+                                    echo '<button name="like-button" type="submit" class="btn btn-danger btn-sm">Delete Request</button>';
+                                    //echo '<button type="button" class="btn btn-danger btn-sm">Dislike</button>';
+                                echo '</div>';
+                            echo '</div>';
+                            echo '</form>';
+                        echo '</div>';
+                        $connectionIdCount = $connectionIdCount + 1;
+}
+?>
 
-                        </div>
                     </div>
                 </div>
-                <div class="col-50 col-sm-100">
-                    <div class="margin-top-2 pr-3">
-                        <h2 class="fw-bold">Blocked</h2>
-                        <div class="d-flex gap-1 scroll-x margin-top-2">
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-                            <div class="col w-25">
-                                <img src="src/assets/images/blank-profile.png" class="profile-img">
-                                <p class="text-center">hello</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+                
             </div>
         </div>
     </div>

@@ -304,6 +304,29 @@ function getUserIds()
     return $storedRowValues;
 }
 
+function getConnectionIds()
+{
+    $db = Database::instance();
+    $user_id = $_SESSION["userid"];
+    $sql = "SELECT ConnectionID FROM Connections WHERE UserID = '1';";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: discovery-pg.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $storedRowValues=array();
+    while ($row = $result->fetch_assoc()) {
+        foreach ($row as $item) {
+            array_push($storedRowValues,$item);
+        }
+    }
+    return $storedRowValues;
+}
+
 function getProfileDetails($userID)
 {
     $db = Database::instance();
