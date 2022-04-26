@@ -37,7 +37,7 @@
             justify-content: center;
             align-items: center;
             padding: 10px;
-            background-image: url(src/assets/images/bg-pg.png);
+            background-image: url(assets/images/bg-pg.png);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -89,11 +89,11 @@
                 <div class="col-sm-12">
                     <div class="col-sm-10 col-sm-offset-1 text-center">
                         <div class="four_z_4_bg">
-                            <img src="src/assets/images/bgg.png" alt="404-image" class="responsive">
+                            <img src="assets/images/bgg.png" alt="404-image" class="responsive">
                             <h3 class="h2">The page you are looking for is not available</h3>
                         </div>
                         <div class="but">
-                            <a href="#" class="btn btn-lg" role="button">Go to Home</a>
+                            <a href="https://lovespark.xyz/" class="btn btn-lg" role="button">Go to Home</a>
                         </div>
                     </div>
                 </div>
