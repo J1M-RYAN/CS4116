@@ -268,102 +268,44 @@ foreach ($list_of_enums as $drinkingOptions) {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+            <?php
+include_once "functions.inc.php";
+$list_of_userIds = getUserIds();
+?>
                 <div class="card radius p-4">
-                    <p class="h2">6 results</p>
+                    <?php $totalUsers = count($list_of_userIds);
+                    echo '<p class="h2">' . $totalUsers . ' results </p>'; ?>
                     <div class="row">
-                        <div class="col-md-3 mb-3 prof-card">
-                            <div class="bg-light radius border p-3">
-                                <div class="text-center">
-                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
-                                </div>
-                                
-                                <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">
-                                        Marcus Doe
-                                    </div>
-                                    <div class="profile-usertitle-age">
-                                        Age
-                                    </div>
-                                    <div class="profile-usertitle-location">
-                                        Location
-                                    </div>
-                                </div>
-                                <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm">Like</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3 prof-card">
-                            <div class="bg-light radius border p-3">
-                                <div class="text-center">
-                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
-                                </div>
-                                
-                                <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">
-                                        Marcus Doe
-                                    </div>
-                                    <div class="profile-usertitle-age">
-                                        Age
-                                    </div>
-                                    <div class="profile-usertitle-location">
-                                        Location
-                                    </div>
-                                </div>
-                                <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm">Like</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                </div>
-                            </div>
-                             
-                        </div>
-                        <div class="col-md-3 mb-3 prof-card">
-                            <div class="bg-light radius border p-3">
-                                <div class="text-center">
-                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
-                                </div>
-                                
-                                <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">
-                                        Marcus Doe
-                                    </div>
-                                    <div class="profile-usertitle-age">
-                                        Age
-                                    </div>
-                                    <div class="profile-usertitle-location">
-                                        Location
-                                    </div>
-                                </div>
-                                <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm">Like</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3 prof-card">
-                            <div class="bg-light radius border p-3">
-                                <div class="text-center">
-                                    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">
-                                </div>
-                                
-                                <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">
-                                        Marcus Doe
-                                    </div>
-                                    <div class="profile-usertitle-age">
-                                        Age
-                                    </div>
-                                    <div class="profile-usertitle-location">
-                                        Location
-                                    </div>
-                                </div>
-                                <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm">Like</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                </div>
-                            </div>
-                        </div>
+                    <?php
+                    include_once "functions.inc.php";
+                    foreach ($list_of_userIds as $userId) {
+                        $profie_data = getProfileDetails($userId);
+                        $list_of_user_details = getUserDetails($userId);
+                        echo '<div class="col-md-3 mb-3 prof-card">';
+                            echo '<div class="bg-light radius border p-3">';
+                                echo '<div class="text-center">';
+                                    echo '<img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">';
+                                echo '</div>';
+                                echo '<div class="profile-usertitle">';
+                                    echo '<div class="profile-usertitle-name">';
+                                        echo $list_of_user_details[4];
+                                    echo '</div>';
+                                    echo '<div class="profile-usertitle-age">';
+                                        echo $profie_data[1];
+                                    echo '</div>';
+                                    echo '<div class="profile-usertitle-location">';
+                                        $county = getCountyFromLocationID($profie_data[13]);
+                                        echo $county[0];
+                                    echo '</div>';
+                                echo '</div>';
+                                echo '<div class="profile-userbuttons">';
+                                    echo '<button type="button" class="btn btn-success btn-sm">Like</button>';
+                                    echo '<button type="button" class="btn btn-danger btn-sm">Dislike</button>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+}
+?>
                     </div>
                 </div>
             </div>
