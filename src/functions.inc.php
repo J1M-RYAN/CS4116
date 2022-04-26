@@ -236,6 +236,30 @@ function createProfile($conn, $userId, $age, $height, $starsign, $smoking, $drin
     exit();
 }
 
+function createConnection($conn, $userId, $connectionId)
+{
+
+    $time =  date("Y-m-d");
+    $connectionStatus = "Pending";
+    $sql = "INSERT INTO Connections (`UserID`, `ConnectionID`, `ConnectionDate`, `Status`) VALUES (?, ?, ?, ?);";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: discovery-pg.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "iiss", $userId, $connectionId, $time, $connectionStatus);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if (!$result) {
+        die(mysqli_error($conn));
+    }
+    mysqli_stmt_close($stmt);
+    header("location: discovery-pg.php?error=none");
+    exit();
+}
+
 function getRowFromTable($table, $column)
 {
     $db = Database::instance();

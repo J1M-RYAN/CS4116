@@ -276,12 +276,18 @@ $list_of_userIds = getUserIds();
                     <?php $totalUsers = count($list_of_userIds);
                     echo '<p class="h2">' . $totalUsers . ' results </p>'; ?>
                     <div class="row">
+                        
                     <?php
                     include_once "functions.inc.php";
+                    $list_of_connection_ids=array();
+                    $connectionIdCount = 0;
                     foreach ($list_of_userIds as $userId) {
                         $profie_data = getProfileDetails($userId);
                         $list_of_user_details = getUserDetails($userId);
+                        array_push($list_of_connection_ids, $userId);
                         echo '<div class="col-md-3 mb-3 prof-card">';
+                        echo '
+                        <form name = "like button" action="discovery-pg.inc.php" method="post">';
                             echo '<div class="bg-light radius border p-3">';
                                 echo '<div class="text-center">';
                                     echo '<img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" class="img-fluid avatar">';
@@ -297,15 +303,21 @@ $list_of_userIds = getUserIds();
                                         $county = getCountyFromLocationID($profie_data[13]);
                                         echo $county[0];
                                     echo '</div>';
+                                    echo '<div class="profile-usertitle-name">';
+                                        echo '<input type="hidden" name="connectionId" value=' . $list_of_connection_ids[$connectionIdCount] . '/>';
+                                    echo '</div>';
                                 echo '</div>';
                                 echo '<div class="profile-userbuttons">';
-                                    echo '<button type="button" class="btn btn-success btn-sm">Like</button>';
-                                    echo '<button type="button" class="btn btn-danger btn-sm">Dislike</button>';
+                                    echo '<button name="like-button" type="submit" class="btn btn-danger btn-sm">like</button>';
+                                    //echo '<button type="button" class="btn btn-danger btn-sm">Dislike</button>';
                                 echo '</div>';
                             echo '</div>';
+                            echo '</form>';
                         echo '</div>';
+                        $connectionIdCount = $connectionIdCount + 1;
 }
 ?>
+
                     </div>
                 </div>
             </div>
