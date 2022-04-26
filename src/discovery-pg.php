@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,6 +131,8 @@
 </head>
 
 <body>
+    
+<?php require './navbar.php'?>
     <div class="discovery-pg">
 
     <!-- Filter Form -->
@@ -140,89 +145,65 @@
                         <div class="card-body">
                             <div class="d-flex d-mobile-block my-4">
                                 <div class="col px-3">
-                                    <label for="location">Location</label>
-                                    <select id="location" class="form-control" name="location" placeholder="Location">
-                                        <option value="Location 1">Location 1</option>
-                                        <option value="Location 2">Location 2</option>
-                                        <option value="Location 3">Location 3</option>
-                                        <option value="Location 4">Location 4</option>
-                                        <option value="Location 5">Location 5</option>
-                                        <option value="Location 6">Location 6</option>
-                                        <option value="Location 7">Location 7</option>
+                                    <label for="location">County</label>
+                                    <select class="form-control" name="county" placeholder="County">
+                                    <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Location", "County");
+echo '<option disabled selected value> -- select an option -- </option>';
+$valueCount = 1;
+foreach ($list_of_enums as $county) {
+    echo '<option value=' . $valueCount . '>' . $county . '</option>';
+    $valueCount = $valueCount + 1;
+}
+?>
                                     </select>
                                 </div>
                                 <div class="col px-3">
                                     <label for="religion">Religion</label>
-                                    <select id="religion" class="form-control" name="religion" placeholder="Religion">
-                                        <option value="Religion 1">Religion 1</option>
-                                        <option value="Religion 2">Religion 2</option>
-                                        <option value="Religion 3">Religion 3</option>
-                                        <option value="Religion 4">Religion 4</option>
-                                        <option value="Religion 5">Religion 5</option>
-                                        <option value="Religion 6">Religion 6</option>
-                                        <option value="Religion 7">Religion 7</option>
+                                    <select class="form-control" name="religion" placeholder="Religion">
+                                    <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Religion");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $religion) {
+    echo '<option value=' . $religion . '>' . $religion . '</option>';
+}
+?>
                                     </select>
                                 </div>
                                 <div class="col px-3">
                                     <label for="star_sign">Star Sign</label>
-                                    <select id="star_sign" class="form-control" name="star_sign"
-                                        placeholder="Star Sign">
-                                        <option value="Star Sign 1">Star Sign 1</option>
-                                        <option value="Star Sign 2">Star Sign 2</option>
-                                        <option value="Star Sign 3">Star Sign 3</option>
-                                        <option value="Star Sign 4">Star Sign 4</option>
-                                        <option value="Star Sign 5">Star Sign 5</option>
-                                        <option value="Star Sign 6">Star Sign 6</option>
-                                        <option value="Star Sign 7">Star Sign 7</option>
+                                    <select class="form-control" name="starsign"
+                                        placeholder="Star Sign"><?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "StarSign");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $StarSign) {
+    echo '<option value=' . $StarSign . '>' . $StarSign . '</option>';
+}
+?>
+                                    </select>
+                                </div>
+                                <div class="col px-3">
+                                    <label for="star_sign">Interests</label>
+                                    <select class="form-control" name="interests"
+                                        placeholder="Interests">
+                                        <?php
+include_once "functions.inc.php";
+$list_of_enums = getRowFromTable("AvailableInterests", "InterestName");
+echo '<option disabled selected value> -- select an option -- </option>';
+$valueCount = 1;
+foreach ($list_of_enums as $interestName) {
+    echo '<option value=' . $valueCount . '>' . $interestName . '</option>';
+    $valueCount = $valueCount + 1;
+}
+?>
                                     </select>
                                 </div>
                             </div>
                             <div class="d-flex d-mobile-block my-4">
-                                <div class="col px-3">
-                                    <label for="interest">Interest</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Option 1"
-                                            id="flexCheckChecked1">
-                                        <label class="form-check-label" for="flexCheckChecked1">
-                                            Option 1
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Option 2"
-                                            id="flexCheckChecked2">
-                                        <label class="form-check-label" for="flexCheckChecked2">
-                                            Option 2
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Option 3"
-                                            id="flexCheckChecked3">
-                                        <label class="form-check-label" for="flexCheckChecked3">
-                                            Option 3
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Option 4"
-                                            id="flexCheckChecked4">
-                                        <label class="form-check-label" for="flexCheckChecked4">
-                                            Option 4
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Option 5"
-                                            id="flexCheckChecked5">
-                                        <label class="form-check-label" for="flexCheckChecked5">
-                                            Option 5
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Option 6"
-                                            id="flexCheckChecked6">
-                                        <label class="form-check-label" for="flexCheckChecked6">
-                                            Option 6
-                                        </label>
-                                    </div>
-                                </div>
+                                
                                 <div class="col px-3">
                                     <label>Filtering Age</label>
                                     <div>
@@ -244,29 +225,31 @@
                                 </div>
                             </div>
                             <div class="d-flex d-mobile-block my-4">
-                                <div class="col px-3">
-                                    <label for="gender">Gender</label>
-                                    <select id="gender" class="form-control" name="gender" placeholder="Gender">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-
-                                    </select>
-                                </div>
+                                
                                 <div class="col px-3">
                                     <label for="smoker">Smoker</label>
-                                    <select id="smoker" class="form-control" name="smoker" placeholder="Smoker">
-                                        <option value="Smoker 1">Yes</option>
-                                        <option value="Smoker 2">No</option>
-
+                                    <select class="form-control" name="smoking" placeholder="Smoker">
+                                    <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Smoking");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $smokingOptions) {
+    echo '<option value="' . $smokingOptions . '">' . $smokingOptions . '</option>';
+}
+?>
                                     </select>
                                 </div>
                                 <div class="col px-3">
                                     <label for="drinker">Drinker</label>
-                                    <select id="drinker" class="form-control" name="drinker" placeholder="Drinker">
-                                        <option value="Drinker 1">Yes</option>
-                                        <option value="Drinker 2">No</option>
-                                        <option value="Drinker 3">Ocassionaly</option>
-
+                                    <select class="form-control" name="drinking" placeholder="Drinker">
+                                    <?php
+include_once "functions.inc.php";
+$list_of_enums = getEnumList("Profile", "Drinking");
+echo '<option disabled selected value> -- select an option -- </option>';
+foreach ($list_of_enums as $drinkingOptions) {
+    echo '<option value="' . $drinkingOptions . '">' . $drinkingOptions . '</option>';
+}
+?>
                                     </select>
                                 </div>
                             </div>
