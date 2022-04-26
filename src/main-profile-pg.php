@@ -22,8 +22,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+    
+     <!-- Main Css File for header and footer-->
+  <link rel="stylesheet" href="./assets/css/main.css">
 
     <!-- Internal style sheet starts here -->
 
