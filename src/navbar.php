@@ -26,7 +26,7 @@
 
                         <?php 
                             if(isset($_SESSION["userEmail"])){
-                                echo "<li class='nav-item'><a class='nav-link mx-2' href='/discover'>Discover</a></li>";
+                                echo "<li class='nav-item'><a class='nav-link mx-2' href='/discovery-pg'>Discover</a></li>";
                                 echo "<li class='nav-item'><a class='nav-link mx-2' href='/main-profile-pg'>Profile</a></li>";
                                 echo "<li class='nav-item'>
                                 <a href='/logout.inc.php'>
