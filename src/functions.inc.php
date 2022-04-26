@@ -308,7 +308,7 @@ function getConnectionIds()
 {
     $db = Database::instance();
     $user_id = $_SESSION["userid"];
-    $sql = "SELECT ConnectionID FROM Connections WHERE UserID = '1';";
+    $sql = "SELECT UserID FROM Connections WHERE ConnectionID = $user_id;";
 
     $stmt = mysqli_stmt_init($db);
 
